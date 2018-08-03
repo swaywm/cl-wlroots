@@ -10,12 +10,13 @@
 		      #:cl-wayland)
   :serial t
   :components
-  ((:file "package")
-   (:file "base" :depends-on ("package"))
-   (:cffi-grovel-file "backend/session-grovel")
-   (:file "backend/session")
-   (:cffi-grovel-file "backend-grovel")
-   (:file "backend")
-   (:cffi-grovel-file "util/log-grovel")
-   (:file "util/log")
-   (:file "final")))
+  ((:module wlr
+	   :components ((:file "package")
+			(:file "base" :depends-on ("package"))
+			(:cffi-grovel-file "backend/session-grovel")
+			(:file "backend/session")
+			(:cffi-grovel-file "backend-grovel")
+			(:file "backend")
+			(:cffi-grovel-file "util/log-grovel")
+			(:file "util/log")
+			(:file "final")))))
