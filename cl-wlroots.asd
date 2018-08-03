@@ -11,12 +11,18 @@
   :serial t
   :components
   ((:module wlr
-	   :components ((:file "package")
-			(:file "base" :depends-on ("package"))
-			(:cffi-grovel-file "backend/session-grovel")
-			(:file "backend/session")
-			(:cffi-grovel-file "backend-grovel")
-			(:file "backend")
-			(:cffi-grovel-file "util/log-grovel")
-			(:file "util/log")
-			(:file "final")))))
+	    :components ((:FILE "package") (:FILE "base")
+			 (:CFFI-GROVEL-FILE "backend/session-grovel" :DEPENDS-ON ("package"))
+			 (:FILE "backend/session" :DEPENDS-ON ("backend/session-grovel"))
+			 (:CFFI-GROVEL-FILE "backend-grovel" :DEPENDS-ON ("package"))
+			 (:FILE "backend" :DEPENDS-ON ("backend-grovel"))
+			 (:CFFI-GROVEL-FILE "util/log-grovel" :DEPENDS-ON ("package"))
+			 (:FILE "util/log" :DEPENDS-ON ("util/log-grovel"))
+			 (:CFFI-GROVEL-FILE "types/wlr-output-grovel" :DEPENDS-ON
+					    ("package" "backend"))
+			 (:FILE "types/wlr-output" :DEPENDS-ON ("types/wlr-output-grovel"))
+			 (:CFFI-GROVEL-FILE "types/wlr-output-layout-grovel" :DEPENDS-ON
+					    ("package" "types/wlr-output"))
+			 (:FILE "types/wlr-output-layout" :DEPENDS-ON
+				("types/wlr-output-layout-grovel"))
+			 (:FILE "final")))))

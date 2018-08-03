@@ -20,3 +20,9 @@
 (defpackage #:cl-wlroots/backend
   (:use :cl :cffi :wayland-server-core
 	:cl-wlroots/backend/session))
+
+(defpackage #:cl-wlroots/types/wlr-output
+  (:use :cffi :cl :wayland-server-core :cl-wlroots/backend))
+
+(defpackage #:cl-wlroots/types/wlr-output-layout
+  (:use :cffi :cl :wayland-server-core :cl-wlroots/types/wlr-output))
