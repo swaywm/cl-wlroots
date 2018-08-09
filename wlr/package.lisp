@@ -27,3 +27,8 @@
 (defpackage #:cl-wlroots/types/output-layout
   (:use :cffi :cl :wayland-server-core :cl-wlroots/types/output))
 
+(defpackage #:cl-wlroots/types/data-device
+  (:use :cffi :cl :wayland-server-core))
+
+(defpackage #:cl-wlroots/types/seat
+  (:use :cffi :cl :wayland-server-core :cl-wlroots/types/data-device))

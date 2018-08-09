@@ -26,6 +26,9 @@
 ;;  ("util/log")
 ;;  ("types/output" :depends-on ("backend"))
 ;;  ("types/output-layout" :depends-on ("types/output"))
+;;  ;; this depends on a lot of stuff, not all implemented:
+;;  ("types/seat" :depends-on ("types/data-device"))
+;;  ("types/data-device")
 ;;  "final")
 
 (asdf:defsystem #:cl-wlroots
@@ -51,4 +54,10 @@
 			 (:CFFI-GROVEL-FILE "types/output-layout-grovel" :DEPENDS-ON
 					    ("package" "types/output"))
 			 (:FILE "types/output-layout" :DEPENDS-ON ("types/output-layout-grovel"))
+			 (:CFFI-GROVEL-FILE "types/seat-grovel" :DEPENDS-ON
+					    ("package" "types/data-device"))
+			 (:FILE "types/seat" :DEPENDS-ON ("types/seat-grovel"))
+			 (:CFFI-GROVEL-FILE "types/data-device-grovel" :DEPENDS-ON ("package"))
+			 (:FILE "types/data-device" :DEPENDS-ON
+				("types/data-device-grovel"))
 			 (:FILE "final")))))
