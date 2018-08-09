@@ -1,4 +1,4 @@
-(in-package #:cl-wlroots/types/wlr-output-layout)
+(in-package #:cl-wlroots/types/output-layout)
 
 (export '(output_layout
 	  direction

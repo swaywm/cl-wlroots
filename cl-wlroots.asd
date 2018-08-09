@@ -24,12 +24,12 @@
 ;;  ("backend/session")
 ;;  ("backend")
 ;;  ("util/log")
-;;  ("types/wlr-output" :depends-on ("backend"))
-;;  ("types/wlr-output-layout" :depends-on ("types/wlr-output"))
+;;  ("types/output" :depends-on ("backend"))
+;;  ("types/output-layout" :depends-on ("types/output"))
 ;;  "final")
 
 (asdf:defsystem #:cl-wlroots
-  :description "CL bindings for wlroots and wayland"
+  :description "CL bindings for wlroots"
   :author "Stuart Dilts stuart.dilts@gmail.com>"
   :license  "MIT"
   :version "0.0.1"
@@ -46,11 +46,9 @@
 			 (:FILE "backend" :DEPENDS-ON ("backend-grovel"))
 			 (:CFFI-GROVEL-FILE "util/log-grovel" :DEPENDS-ON ("package"))
 			 (:FILE "util/log" :DEPENDS-ON ("util/log-grovel"))
-			 (:CFFI-GROVEL-FILE "types/wlr-output-grovel" :DEPENDS-ON
-					    ("package" "backend"))
-			 (:FILE "types/wlr-output" :DEPENDS-ON ("types/wlr-output-grovel"))
-			 (:CFFI-GROVEL-FILE "types/wlr-output-layout-grovel" :DEPENDS-ON
-					    ("package" "types/wlr-output"))
-			 (:FILE "types/wlr-output-layout" :DEPENDS-ON
-				("types/wlr-output-layout-grovel"))
+			 (:CFFI-GROVEL-FILE "types/output-grovel" :DEPENDS-ON ("package" "backend"))
+			 (:FILE "types/output" :DEPENDS-ON ("types/output-grovel"))
+			 (:CFFI-GROVEL-FILE "types/output-layout-grovel" :DEPENDS-ON
+					    ("package" "types/output"))
+			 (:FILE "types/output-layout" :DEPENDS-ON ("types/output-layout-grovel"))
 			 (:FILE "final")))))

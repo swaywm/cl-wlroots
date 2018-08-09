@@ -1,4 +1,4 @@
-(in-package #:cl-wlroots/types/wlr-output)
+(in-package #:cl-wlroots/types/output)
 (pkg-config-cflags "wlroots")
 (cc-flags "-DWLR_USE_UNSTABLE")
 (include "wlr/types/wlr_output.h")
@@ -11,10 +11,10 @@
 	 ;;; not including the link:
 	 )
 
-(cstruct wlr_output "struct wlr_output")
+(cstruct output "struct wlr_output")
 
 (cstruct output_cursor "struct wlr_output_cursor"
-	 (output "output" :type (:pointer (:struct wlr_output)))
+	 (output "output" :type (:pointer (:struct output)))
 	 (x "x" :type :double)
 	 (y "y" :type :double)
 	 (enabled "enabled" :type :bool)
@@ -27,7 +27,7 @@
 	 )
 
 
-(cstruct wlr_output "struct wlr_output"
+(cstruct output "struct wlr_output"
 	 (:backend "backend" :type (:pointer (:struct wlr_backend)))
 	 (:display "display" :type :pointer)
 	 ;; skipping global, wl_list

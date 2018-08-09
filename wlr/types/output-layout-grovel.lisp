@@ -1,4 +1,4 @@
-(in-package #:cl-wlroots/types/wlr-output-layout)
+(in-package #:cl-wlroots/types/output-layout)
 (pkg-config-cflags "wlroots")
 (cc-flags "-DWLR_USE_UNSTABLE")
 (include "wlr/types/wlr_output_layout.h")
@@ -16,7 +16,7 @@
 
 
 (cstruct output_layout_output "struct wlr_output_layout_output"
-	 (:output "output" :type (:pointer (:struct wlr_output)))
+	 (:output "output" :type (:pointer (:struct output)))
 	 (:x "x" :type :int)
 	 (:y "y" :type :int)
 	 ;; skipping link
