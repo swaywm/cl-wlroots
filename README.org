@@ -17,7 +17,7 @@
     Download this project to a place that asdf can see it, or add its
     path to asdf's source registry. Both of these solutions are
     explained in the [[https://common-lisp.net/project/asdf/asdf/Configuring-ASDF-to-find-your-systems.html][asdf manual]]. You can then load the project with
-    ~(ql:quickload "cl-wlroots")~. You can also download it to ~~/quicklisp/local-projects~
+    ~(ql:quickload "cl-wlroots")~. You can also download it to =~/quicklisp/local-projects=
 ** Usage
    Every symbol and function is exported under the ~wlr~ package. If
    you want to go on a file-by-file basis, each c header corresponds to a
