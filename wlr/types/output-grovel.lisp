@@ -14,13 +14,13 @@
 (cstruct output "struct wlr_output")
 
 (cstruct output_cursor "struct wlr_output_cursor"
-	 (output "output" :type (:pointer (:struct output)))
-	 (x "x" :type :double)
-	 (y "y" :type :double)
-	 (enabled "enabled" :type :bool)
-	 (visible "visible" :type :bool)
-	 (width "width" :type :uint32)
-	 (height "height" :type :uint32)
+	 (:output "output" :type (:pointer (:struct output)))
+	 (:x "x" :type :double)
+	 (:y "y" :type :double)
+	 (:enabled "enabled" :type :bool)
+	 (:visible "visible" :type :bool)
+	 (:width "width" :type :uint32)
+	 (:height "height" :type :uint32)
 	 ;; TODO: hotspot_x, hotspot_y
 	 ;; skipping link
 	 ;; TODO: wlr_texture)
@@ -28,15 +28,30 @@
 
 
 (cstruct output "struct wlr_output"
-	 (:backend "backend" :type (:pointer (:struct wlr_backend)))
+	 (:backend "backend" :type (:pointer (:struct backend)))
 	 (:display "display" :type :pointer)
 	 ;; skipping global, wl_list
-	 (:name "name" :type :char :count 24)
-	 (:make "make" :type :char :count 48)
-	 (:model "model" :type :char :count 16)
-	 (:serial "serial" :type :char :count 16)
+	 (:name "name" :type :string)
+	 (:make "make" :type :string)
+	 (:model "model" :type :string)
+	 (:serial "serial" :type :string)
 	 (:phys-width "phys_width" :type :int32)
 	 (:pys-height "phys_height" :type :int32)
-	 ;; skipping struct wl_list modes
+	 (:modes "modes" :type wayland-server-core:wl_list)
 	 (:current-mode "current_mode"
-			:type (:pointer (:struct output_mode))))
+			:type (:pointer (:struct output_mode)))
+	 (:width "width" :type :int32)
+	 (:height "height" :type :int32)
+	 (:refresh "refresh" :type :int32)
+	 (:enabled "enabled" :type :bool)
+	 (:scale "scale" :type :float)
+	 ;; (:subpixel "subpixel" :type wayland-server-protocol:wl-output-subpixel)
+	 ;; (:transform "transform" :type wayland-server-protocol:wl-output-transform)
+	 (:subpixel "subpixel" :type :int)
+	 (:transform "transform" :type :int)
+	 (:needs-swap "needs_swap" :type :bool)
+	 ;; (:damage "damage" :type pixman:region32_t)
+	 (:frame-pending "frame_pending" :type :bool)
+	 (:transform-matrix "transform_matrix" :type :float)
+	 (:event-frame "events.frame" :type (:struct wl_signal))
+	 (:event-destroy "events.destroy" :type (:struct wl_signal)))

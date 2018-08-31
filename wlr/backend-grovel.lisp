@@ -3,7 +3,7 @@
 (cc-flags "-DWLR_USE_UNSTABLE")
 (include "wlr/backend.h")
 
-(cstruct wlr_backend "struct wlr_backend"
+(cstruct backend "struct wlr_backend"
 	 (impl "impl" :type :pointer)
 	 (:event-destroy "events.destroy"
 	 		:type (:struct wl_signal))

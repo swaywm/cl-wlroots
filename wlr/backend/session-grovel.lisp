@@ -1,6 +1,5 @@
 (in-package #:cl-wlroots/backend/session)
 (pkg-config-cflags "wlroots")
-;;(cc-flags "DUSE_UNSTABLE"
 (include "wlr/backend/session.h")
 
 ;; not used by us, doesn't compile with this;

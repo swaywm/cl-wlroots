@@ -22,13 +22,15 @@
 ;;  "package"
 ;;  "base"
 ;;  ("backend/session")
-;;  ("backend")
+;;  ("backend" :depends-on ("render/renderer"))
 ;;  ("util/log")
 ;;  ("types/output" :depends-on ("backend"))
 ;;  ("types/output-layout" :depends-on ("types/output"))
 ;;  ;; this depends on a lot of stuff, not all implemented:
 ;;  ("types/seat" :depends-on ("types/data-device"))
 ;;  ("types/data-device")
+;;  ("types/output-damage" :depends-on ("types/output"))
+;;  ("render/renderer")
 ;;  "final")
 
 (asdf:defsystem #:cl-wlroots
@@ -45,7 +47,7 @@
 	    :components ((:FILE "package") (:FILE "base")
 			 (:CFFI-GROVEL-FILE "backend/session-grovel" :DEPENDS-ON ("package"))
 			 (:FILE "backend/session" :DEPENDS-ON ("backend/session-grovel"))
-			 (:CFFI-GROVEL-FILE "backend-grovel" :DEPENDS-ON ("package"))
+			 (:CFFI-GROVEL-FILE "backend-grovel" :DEPENDS-ON ("package" "render/renderer"))
 			 (:FILE "backend" :DEPENDS-ON ("backend-grovel"))
 			 (:CFFI-GROVEL-FILE "util/log-grovel" :DEPENDS-ON ("package"))
 			 (:FILE "util/log" :DEPENDS-ON ("util/log-grovel"))
@@ -58,6 +60,10 @@
 					    ("package" "types/data-device"))
 			 (:FILE "types/seat" :DEPENDS-ON ("types/seat-grovel"))
 			 (:CFFI-GROVEL-FILE "types/data-device-grovel" :DEPENDS-ON ("package"))
-			 (:FILE "types/data-device" :DEPENDS-ON
-				("types/data-device-grovel"))
+			 (:FILE "types/data-device" :DEPENDS-ON ("types/data-device-grovel"))
+			 (:CFFI-GROVEL-FILE "types/output-damage-grovel" :DEPENDS-ON
+					    ("package" "types/output"))
+			 (:FILE "types/output-damage" :DEPENDS-ON ("types/output-damage-grovel"))
+			 (:CFFI-GROVEL-FILE "render/renderer-grovel" :DEPENDS-ON ("package"))
+			 (:FILE "render/renderer" :DEPENDS-ON ("render/renderer-grovel"))
 			 (:FILE "final")))))
