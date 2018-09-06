@@ -22,9 +22,14 @@
 (defcfun ("wlr_renderer_end" renderer-end) :void
   (renderer (:pointer (:struct renderer))))
 
-(defcfun ("wlr_renderer_clear" renderer-clear) :void
+(defcfun ("wlr_renderer_clear" internal-renderer-clear) :void
   (renderer (:pointer (:struct renderer)))
   (color :pointer))
+
+(declaim (inline renderer-clear))
+(defun renderer-clear (renderer color-array)
+  (with-foreign-array (color color-array '(:array :float 4))
+    (internal-renderer-clear renderer color)))
 
 (defcfun ("wlr_renderer_init_wl_display" renderer-init-wl-display) :void
   (renderer (:pointer (:struct renderer)))

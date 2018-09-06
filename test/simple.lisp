@@ -1,9 +1,9 @@
-(defpackage #:mh/backend/simple
+(defpackage #:wlr-test/simple
   (:use :cl :wayland-server-core :cffi))
 
-(in-package :mh/backend/simple)
+(in-package :wlr-test/simple)
 
-
+(export '(main))
 
 ;; helper functions:
 
@@ -56,8 +56,8 @@
 						       :backend))))
     (wlr:output-make-current (sample-output-output output-owner) (cffi:null-pointer))
 
-    (with-foreign-array (color #(0.4 0.4 0.4 1.0) '(:array :float 4))
-      (wlr:renderer-clear renderer color))
+    ;; renderer-clear takes care of array conversion for us:
+    (wlr:renderer-clear renderer #(0.4 0.4 0.4 1.0))
     (wlr:output-swap-buffers (sample-output-output output-owner) (cffi:null-pointer)
 			     (cffi:null-pointer))
     (wlr:renderer-end renderer)))
@@ -65,7 +65,7 @@
 (cffi:defcallback destroy-output :void
     ((listener :pointer)
      (output :pointer))
-  (declare (ignore output))
+  (declare (ignore listener))
   (format t "Output ~A removed" (foreign-slot-pointer output '(:struct wlr:output)
   							       :name)))
 
