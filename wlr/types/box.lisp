@@ -36,12 +36,14 @@
   (box (:pointer box)))
 
 (defcfun ("wlr_box_transform" box-transform) :void
+  "Transforms a box inside a 'width' by 'height' box."
   (transform wl-output-transform)
   (width :int)
   (height :int)
   (dest (:pointer box)))
 
 (defcfun ("wlr_box_rotated_bounds" box-rotated-bounds) :void
+  "Creates the smallest box that contains the box rotated about its center"
   (box (:pointer box))
   (rotation :float)
   (dest (:pointer box)))
