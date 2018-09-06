@@ -14,6 +14,9 @@
 (defpackage #:cl-wlroots/util/log
   (:use :cffi :cl))
 
+(defpackage #:cl-wlroots/types/box
+  (:use :cl :cffi :wayland-server-protocol))
+
 (defpackage #:cl-wlroots/render/renderer
   (:use :cffi :cl :wayland-server-core :egl :wayland-server-core))
 
