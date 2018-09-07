@@ -67,7 +67,17 @@
      (output :pointer))
   (declare (ignore listener))
   (format t "Output ~A removed" (foreign-slot-pointer output '(:struct wlr:output)
-  							       :name)))
+  						      :name))
+  (let ((owner-listener (get-listener-owner listener *listener-hash*)))
+    (unregister-listener listener *listener-hash*)
+    (unregister-listener (sample-output-frame-listener owner-listener) *listener-hash*)
+    (wl-list-remove (cffi:foreign-slot-pointer listener
+					       '(:struct wl_listener) 'link))
+    (wl-list-remove (cffi:foreign-slot-pointer (sample-output-frame-listener owner-listener)
+					       '(:struct wl_listener) 'link))
+    (cffi:foreign-free listener)
+    (cffi:foreign-free (sample-output-frame-listener owner-listener))))
+
 
 (cffi:defcallback handle-new-output :void
     ((listener :pointer)
