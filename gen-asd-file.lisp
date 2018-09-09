@@ -17,10 +17,16 @@
 	  (setf entry-list (cons `(:file ,entry) entry-list))))
     entry-list))
 
+;; build-files will generate a list sutaible for passing to asdf
+;; a list argument will generate a :grovel-file call, while entries not
+;; in a list will be passed as-is. If for some rare reason that
+;; the grovel file needs to be loaded after the normal file,
+;; specify :req-first :file
 (build-files
  "package"
  "base"
  '("common")
+ ;; this depends on a lot of stuff, not all implemented:
  '("backend" :depends-on ("render/renderer" "backend/session"))
  '("backend/session")
  '("render/renderer")
@@ -30,7 +36,6 @@
  '("types/output" :depends-on ("backend"))
  '("types/output-damage" :depends-on ("types/output"))
  '("types/output-layout" :depends-on ("types/output"))
-  ;; this depends on a lot of stuff, not all implemented:
  '("types/seat" :depends-on ("types/data-device"))
  '("util/log")
  "final")

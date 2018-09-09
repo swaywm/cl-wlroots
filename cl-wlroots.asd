@@ -1,8 +1,8 @@
 ;;;; cl-wlroots.asd
 
 (asdf:defsystem #:cl-wlroots
-  :description "CL bindings for wlroots"
-  :author "Stuart Dilts stuart.dilts@gmail.com>"
+  :description "Common lisp bindings for wlroots, a library for writing Wayland compositors"
+  :author "Stuart Dilts stuart dot dilts at gmail dot com"
   :license  "MIT"
   :version "0.0.1"
   :defsystem-depends-on (#:cffi-grovel)
@@ -11,6 +11,7 @@
   :serial t
   :components
   ((:module wlr
+	    ;; use the functions in gen-asd-file.lisp to generate the file list:
 	    :components ((:FILE "package") (:FILE "base")
 			 (:CFFI-GROVEL-FILE "common-grovel" :DEPENDS-ON ("package"))
 			 (:FILE "common" :DEPENDS-ON ("common-grovel"))
