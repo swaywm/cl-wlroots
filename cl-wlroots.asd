@@ -12,6 +12,8 @@
   :components
   ((:module wlr
 	    :components ((:FILE "package") (:FILE "base")
+			 (:CFFI-GROVEL-FILE "common-grovel" :DEPENDS-ON ("package"))
+			 (:FILE "common" :DEPENDS-ON ("common-grovel"))
 			 (:CFFI-GROVEL-FILE "backend-grovel" :DEPENDS-ON
 					    ("package" "render/renderer" "backend/session"))
 			 (:FILE "backend" :DEPENDS-ON ("backend-grovel"))

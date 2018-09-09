@@ -11,6 +11,9 @@
 (defpackage #:cl-wlroots/base
   (:use :cffi))
 
+(defpackage #:cl-wlroots/common
+  (:use :cffi :cl))
+
 (defpackage #:cl-wlroots/util/log
   (:use :cffi :cl))
 

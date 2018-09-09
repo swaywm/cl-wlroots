@@ -20,6 +20,7 @@
 (build-files
  "package"
  "base"
+ '("common")
  '("backend" :depends-on ("render/renderer" "backend/session"))
  '("backend/session")
  '("render/renderer")
