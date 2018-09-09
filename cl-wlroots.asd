@@ -7,7 +7,7 @@
   :version "0.0.1"
   :defsystem-depends-on (#:cffi-grovel)
   :depends-on (#:cffi #:cffi-grovel #:net.didierverna.declt
-		      #:cl-wayland #:cl-egl)
+		      #:cl-wayland #:cl-egl #:xkbcommon)
   :serial t
   :components
   ((:module wlr
@@ -25,6 +25,8 @@
 			 (:FILE "types/box" :DEPENDS-ON ("types/box-grovel"))
 			 (:CFFI-GROVEL-FILE "types/data-device-grovel" :DEPENDS-ON ("package"))
 			 (:FILE "types/data-device" :DEPENDS-ON ("types/data-device-grovel"))
+			 (:CFFI-GROVEL-FILE "types/input-device-grovel" :DEPENDS-ON ("package"))
+			 (:FILE "types/input-device" :DEPENDS-ON ("types/input-device-grovel"))
 			 (:CFFI-GROVEL-FILE "types/output-grovel" :DEPENDS-ON ("package" "backend"))
 			 (:FILE "types/output" :DEPENDS-ON ("types/output-grovel"))
 			 (:CFFI-GROVEL-FILE "types/output-damage-grovel" :DEPENDS-ON

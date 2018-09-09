@@ -26,6 +26,7 @@
  '("render/renderer")
  '("types/box")
  '("types/data-device")
+ '("types/input-device")
  '("types/output" :depends-on ("backend"))
  '("types/output-damage" :depends-on ("types/output"))
  '("types/output-layout" :depends-on ("types/output"))

@@ -8,5 +8,6 @@
    #:cl-wlroots/types/output
    #:cl-wlroots/types/output-damage
    #:cl-wlroots/types/output-layout
+   #:cl-wlroots/types/input-devices
    #:cl-wlroots/types/seat
    #:cl-wlroots/util/log))

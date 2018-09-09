@@ -45,3 +45,6 @@
 
 (defpackage #:cl-wlroots/types/output-damage
   (:use :cffi :cl :wayland-server-core :cl-wlroots/types/output))
+
+(defpackage #:cl-wlroots/types/input-devices
+  (:use :cffi :cl :wayland-server-core :cl-wlroots/common))
