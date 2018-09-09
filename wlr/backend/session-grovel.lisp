@@ -5,11 +5,11 @@
 ;; not used by us, doesn't compile with this;
 ;; (cstruct session_impl "struct session_impl")
 
-(cstruct wlr_device "struct wlr_device"
+(cstruct device "struct wlr_device"
 	 (fd "fd" :type :int)
 	 (sig "signal" :type :pointer))
 
-(cstruct wlr_session "struct wlr_session"
+(cstruct session "struct wlr_session"
 	 (impl "impl" :type :pointer)
 	 (session_signal "session_signal" :type (:struct wl_signal))
 	 (active "active" :type :bool)

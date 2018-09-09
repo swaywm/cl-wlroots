@@ -24,7 +24,7 @@
   (:use :cffi :cl :wayland-server-core :egl :wayland-server-core))
 
 (defpackage #:cl-wlroots/backend/session
-  (:use :cl :cffi :wayland-server-core))
+  (:use :cl :cffi :wayland-server-core :cl-wlroots/common))
 
 (defpackage #:cl-wlroots/backend
   (:use :cl :cffi :wayland-server-core
