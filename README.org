@@ -1,4 +1,4 @@
-* cl-wlroots
+#+TITLE: cl-wlroots
   This system provides cffi bindings for wlroots. Its goal is to just
   provide a low level interface to the library, although abstractions
   may be added in the future.
@@ -16,8 +16,9 @@
 *** Installation
     Download this project to a place that asdf can see it, or add its
     path to asdf's source registry. Both of these solutions are
-    explained in the [[https://common-lisp.net/project/asdf/asdf/Configuring-ASDF-to-find-your-systems.html][asdf manual]]. You can then load the project with
-    ~(ql:quickload "cl-wlroots")~. You can also download it to =~/quicklisp/local-projects=.
+    explained in the [[https://common-lisp.net/project/asdf/asdf/Configuring-ASDF-to-find-your-systems.html][asdf manual]].
+    An additional solution is to download it to =~/quicklisp/local-projects=. You can then load the project with
+    ~(ql:quickload "cl-wlroots")~.
 ** Usage
    Every symbol and function is exported under the ~wlr~ package. If
    you want to go on a file-by-file basis, each c header corresponds to a
@@ -25,3 +26,5 @@
    ~wlr/types/wlr_output.h~ can be found in the ~wlr/types/output~
    package. An notable exception to this is ~wlr/types/input-devices~,
    which contains all of the code for the input devices.
+** Examples
+  Example programs can be found in the =test= directory.
