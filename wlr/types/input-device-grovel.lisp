@@ -59,7 +59,7 @@
 	 (:mod-indexes "mod_indexes" :type "xkb:mod-index" :count "WLR_MODIFIER_COUNT")
 	 (:keycodes "keycodes" :type :uint32 :count "WLR_KEYBOARD_KEYS_CAP")
 	 (:num_keycodes "num_keycodes" :type size-t)
-	 (:modifiers "modifiers" :type keyboard-modifiers)
+	 (:modifiers "modifiers" :type (:pointer (:struct keyboard-modifiers)))
 	 ;; may want to change the repeat-info into a seperate struct:
 	 (:repeat-info-rate "repeat_info.rate" :type :int32)
 	 (:repeat-info-delay "repeat_info.delay" :type :int32)
@@ -90,7 +90,7 @@
 	 (:data "data" :type :pointer))
 
 (cstruct event-pointer-motion "struct wlr_event_pointer_motion"
-	 (:input-device "device" :type (:pointer input-device))
+	 (:input-device "device" :type (:pointer (:struct input-device)))
 	 (:time-msec "time_msec" :type :uint32)
 	 (:delta-x "delta_x" :type :double)
 	 (:delta-y "delta_y" :type :double))

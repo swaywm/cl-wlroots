@@ -37,7 +37,7 @@
 	 (:serial "serial" :type :string)
 	 (:phys-width "phys_width" :type :int32)
 	 (:pys-height "phys_height" :type :int32)
-	 (:modes "modes" :type wayland-server-core:wl_list)
+	 (:modes "modes" :type (:struct wayland-server-core:wl_list))
 	 (:current-mode "current_mode"
 			:type (:pointer (:struct output_mode)))
 	 (:width "width" :type :int32)
