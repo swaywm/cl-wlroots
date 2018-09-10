@@ -1,0 +1,15 @@
+#!/bin/sh
+#|-*- mode:lisp -*-|#
+#|
+exec ros -Q -- $0 "$@"
+|#
+
+(ql:quickload '("cffi-grovel" "cl-wlroots" "cl-wlroots-examples"))
+
+
+(in-package #:wlr-test/simple)
+
+(defun main (&rest argv)
+  (declare (ignorable argv))
+  (run-simple))
+;;; vim: set ft=lisp lisp:
