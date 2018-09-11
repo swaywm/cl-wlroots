@@ -56,21 +56,26 @@
 	 (wlr-keyboard (cffi:foreign-slot-value (sample-keyboard-device sample-keyboard)
 						'(:struct wlr:input-device)
     						:keyboard))
-	 (keycode (+ 8 (foreign-slot-value event '(:struct wlr:event-keyboard-key) :keycode)))
-	 (keysym (xkb:state-key-get-one-sym (foreign-slot-value wlr-keyboard
-	  						    '(:struct wlr:keyboard)
-	  						    :xkb-state)
-					    keycode)))
-    (format t "Keysym: ~A~%" keysym)
-    (finish-output)
-    (when (eql keysym #xff1b)
-      (wl-display-terminate (sample-state-display *sample-state*)))))
+	 (keycode (+ 8 (foreign-slot-value event '(:struct wlr:event-keyboard-key) :keycode))))
+    (with-foreign-object (syms :pointer)
+      (let ((num-syms (xkb:state-key-get-syms (foreign-slot-value wlr-keyboard
+								    '(:struct wlr:keyboard)
+								    :xkb-state)
+					      keycode syms)))
+	(format t "Num keysyms: ~A~%" num-syms)
+	(dotimes (i num-syms)
+	  ;; ref twice, as syms is a pointer to a pointer:
+	  (let ((keysym (mem-aref (mem-ref syms :pointer) 'xkb:keysym i)))
+	    (format t "Keysym: ~A~%" keysym)
+	    (when (eql keysym #xff1b)
+	      (wl-display-terminate (sample-state-display *sample-state*)))))
+	  (finish-output)))))
 
 (cffi:defcallback keyboard-destroy-notify :void
     ((listener :pointer)
      (keyboard (:pointer (:struct wlr:input-device))))
   (declare (ignore listener keyboard))
-  (format t "A keyboard was destroyed"))
+  (format t "A keyboard was destroyed~%"))
 
 (defun setup-rules (rules)
   (setf (cffi:foreign-slot-value rules '(:struct xkb:rule-names)
@@ -146,7 +151,7 @@
 (cffi:defcallback destroy-output :void
     ((listener :pointer)
      (output :pointer))
-  (format t "Output ~A removed" (foreign-string-to-lisp
+  (format t "Output ~A removed~%" (foreign-string-to-lisp
 				 (foreign-slot-pointer output '(:struct wlr:output)
   						       :name)))
   (finish-output)
@@ -213,4 +218,5 @@
       (wlr:backend-destroy backend)
       (uiop:quit 1))
     (wl-display-run display)
+    (wlr:backend-destroy backend)
     (wl-display-destroy display)))
