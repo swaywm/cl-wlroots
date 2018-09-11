@@ -52,9 +52,19 @@
 (cffi:defcallback keyboard-key-notify :void
     ((listener :pointer)
      (event (:pointer (:struct wlr:event-keyboard-key))))
-  (declare (ignore listener event))
-  (format t "A key was pressed!~%")
-  (finish-output))
+  (let* ((sample-keyboard (get-listener-owner listener *listener-hash*))
+	 (wlr-keyboard (cffi:foreign-slot-value (sample-keyboard-device sample-keyboard)
+						'(:struct wlr:input-device)
+    						:keyboard))
+	 (keycode (+ 8 (foreign-slot-value event '(:struct wlr:event-keyboard-key) :keycode)))
+	 (keysym (xkb:state-key-get-one-sym (foreign-slot-value wlr-keyboard
+	  						    '(:struct wlr:keyboard)
+	  						    :xkb-state)
+					    keycode)))
+    (format t "Keysym: ~A~%" keysym)
+    (finish-output)
+    (when (eql keysym #xff1b)
+      (wl-display-terminate (sample-state-display *sample-state*)))))
 
 (cffi:defcallback keyboard-destroy-notify :void
     ((listener :pointer)
@@ -65,19 +75,19 @@
 (defun setup-rules (rules)
   (setf (cffi:foreign-slot-value rules '(:struct xkb:rule-names)
 				 :rules)
-	(or (uiop:getenv "XKB_DEFAULT_RULES") (null-pointer)))
+	(or (uiop:getenv "XKB_DEFAULT_RULES") ""))
   (setf (cffi:foreign-slot-value rules '(:struct xkb:rule-names)
 				 :model)
-	(or (uiop:getenv "XKB_DEFAULT_MODEL") (null-pointer)))
+	(or (uiop:getenv "XKB_DEFAULT_MODEL") ""))
   (setf (cffi:foreign-slot-value rules '(:struct xkb:rule-names)
 				 :layout)
-	(or (uiop:getenv "XKB_DEFAULT_LAYOUT") (null-pointer)))
+	(or (uiop:getenv "XKB_DEFAULT_LAYOUT") ""))
   (setf (cffi:foreign-slot-value rules '(:struct xkb:rule-names)
 				 :variant)
-	(or (uiop:getenv "XKB_DEFAULT_VARIANT") (null-pointer)))
+	(or (uiop:getenv "XKB_DEFAULT_VARIANT") ""))
   (setf (cffi:foreign-slot-value rules '(:struct xkb:rule-names)
 				 :options)
-	(or (uiop:getenv "XKB_DEFAULT_OPTIONS") (null-pointer))))
+	(or (uiop:getenv "XKB_DEFAULT_OPTIONS") "")))
 
 (defun add-new-keyboard (device)
   (format t "Keyboard added~%")
@@ -155,24 +165,21 @@
     ((listener :pointer)
      (output (:pointer (:struct wlr:output))))
   (declare (ignore listener))
-  (assert (not (cffi:null-pointer-p output)))
   (let ((frame-listener (make-listener new-frame-notify))
 	(destroy-listener (make-listener destroy-output)))
 
     (format t "New output ~A~%" (foreign-string-to-lisp
 				 (foreign-slot-pointer output '(:struct wlr:output)
   						       :name)))
-    (assert (not (cffi:null-pointer-p frame-listener)))
-    (assert (not (cffi:null-pointer-p destroy-listener)))
     (finish-output)
-    (wayland-server-core:wl-signal-add (cffi:foreign-slot-pointer output
-    								  '(:struct wlr:output)
-    								  :event-frame)
-    				       frame-listener)
-    (wayland-server-core:wl-signal-add (cffi:foreign-slot-pointer output
-    								  '(:struct wlr:output)
-    								  :event-destroy)
-    				       destroy-listener)
+    (wl-signal-add (cffi:foreign-slot-pointer output
+    					      '(:struct wlr:output)
+    					      :event-frame)
+    		   frame-listener)
+    (wl-signal-add (cffi:foreign-slot-pointer output
+    					      '(:struct wlr:output)
+    					      :event-destroy)
+    		   destroy-listener)
     (let ((new-output (make-sample-output :state *sample-state*
     					  :output output
     					  :frame-listener frame-listener
@@ -182,28 +189,28 @@
 
 (defun run-simple ()
   (cl-wlroots/util/log:log-init :log-debug (cffi:null-pointer))
-  (let* ((display (wayland-server-core:wl-display-create))
+  (let* ((display (wl-display-create))
 	 (backend (wlr:backend-autocreate display (cffi:null-pointer)))
 	 (renderer (wlr:backend-get-renderer backend))
 	 (new-output-listener (make-listener handle-new-output))
 	 (new-input-listener (make-listener new-input-notify)))
     (assert (not (cffi:null-pointer-p backend)))
-    (assert (not (eql renderer (null-pointer))))
+    (assert (not (cffi:null-pointer-p renderer)))
     (wlr:renderer-init-wl-display renderer display)
 
-    (wayland-server-core:wl-signal-add (cffi:foreign-slot-pointer backend
-								  '(:struct wlr:backend)
-								  :event-new-input)
-				       new-input-listener)
-    (wayland-server-core:wl-signal-add (cffi:foreign-slot-pointer backend
-								  '(:struct wlr:backend)
-								  :event-new-output)
-				       new-output-listener)
+    (wl-signal-add (cffi:foreign-slot-pointer backend
+					      '(:struct wlr:backend)
+					      :event-new-input)
+		   new-input-listener)
+    (wl-signal-add (cffi:foreign-slot-pointer backend
+					      '(:struct wlr:backend)
+					      :event-new-output)
+		   new-output-listener)
     (setf *sample-state* (make-sample-state :display display
 					    :backend backend))
     (unless (wlr:backend-start backend)
       (format t "Failed to start backend")
       (wlr:backend-destroy backend)
       (uiop:quit 1))
-    (wayland-server-core:wl-display-run display)
-    (wayland-server-core:wl-display-destroy display)))
+    (wl-display-run display)
+    (wl-display-destroy display)))
