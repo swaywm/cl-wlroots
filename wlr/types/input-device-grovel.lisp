@@ -73,10 +73,10 @@
        ((:key-pressed "WLR_KEY_PRESSED")))
 
 (cstruct event-keyboard-key "struct wlr_event_keyboard_key"
-	 (time-msec "time_msec" :type :uint32)
-	 (keycode "keycode" :type :uint32)
-	 (update-state "update_state" :type :bool)
-	 (state "state" :type key-state))
+	 (:time-msec "time_msec" :type :uint32)
+	 (:keycode "keycode" :type :uint32)
+	 (:update-state "update_state" :type :bool)
+	 (:state "state" :type key-state))
 
 ;; end of wlr_keyboard.h
 
