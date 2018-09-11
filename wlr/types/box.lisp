@@ -8,7 +8,7 @@
 	  box-rotated-bounds))
 
 (defcfun ("wlr_box_closest_point" internal-box-closest-point) :void
-  (box (:pointer box))
+  (box (:pointer (:struct box)))
   (x :double)
   (y :double)
   (dest-x (:pointer :double))
@@ -23,27 +23,27 @@
 	    (the double-float (mem-ref dest-y :double)))))
 
 (defcfun ("wlr_box_intersection" box-intersection) :bool
-  (box-a (:pointer box))
-  (box-b (:pointer box))
-  (dest  (:pointer box)))
+  (box-a (:pointer (:struct box)))
+  (box-b (:pointer (:struct box)))
+  (dest  (:pointer (:struct box))))
 
 (defcfun ("wlr_box_contains_point" box-contains-point) :bool
-  (box (:pointer box))
+  (box (:pointer (:struct box)))
   (x :double)
   (y :double))
 
 (defcfun ("wlr_box_empty" box-empty-p) :bool
-  (box (:pointer box)))
+  (box (:pointer (:struct box))))
 
 (defcfun ("wlr_box_transform" box-transform) :void
   "Transforms a box inside a 'width' by 'height' box."
   (transform wl-output-transform)
   (width :int)
   (height :int)
-  (dest (:pointer box)))
+  (dest (:pointer (:struct box))))
 
 (defcfun ("wlr_box_rotated_bounds" box-rotated-bounds) :void
   "Creates the smallest box that contains the box rotated about its center"
-  (box (:pointer box))
+  (box (:pointer (:struct box)))
   (rotation :float)
-  (dest (:pointer box)))
+  (dest (:pointer (:struct box))))
