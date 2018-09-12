@@ -4,6 +4,7 @@
    #:cl-wlroots/backend/session
    #:cl-wlroots/render/renderer
    #:cl-wlroots/types/box
+   #:cl-wlroots/types/cursor
    #:cl-wlroots/types/data-device
    #:cl-wlroots/types/output
    #:cl-wlroots/types/output-damage

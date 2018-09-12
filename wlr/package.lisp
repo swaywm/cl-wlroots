@@ -48,3 +48,7 @@
 
 (defpackage #:cl-wlroots/types/input-devices
   (:use :cffi :cl :wayland-server-core :cl-wlroots/common))
+
+(defpackage #:cl-wlroots/types/cursor
+  (:use :cffi :cl :wayland-server-core #:cl-wlroots/types/input-devices
+	#:cl-wlroots/types/box #:cl-wlroots/types/output-layout #:cl-wlroots/types/output))
