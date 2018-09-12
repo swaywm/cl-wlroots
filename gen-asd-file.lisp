@@ -33,6 +33,8 @@
  '("backend/session")
  '("render/renderer")
  '("types/box")
+ '("types/cursor" :depends-on ("types/input-device" "types/box"
+			       "types/output-layout" "types/output"))
  '("types/data-device")
  '("types/input-device")
  '("types/output" :depends-on ("backend"))
