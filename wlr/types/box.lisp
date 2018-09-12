@@ -1,6 +1,7 @@
 (in-package #:cl-wlroots/types/box)
 
-(export '(box-closest-point
+(export '(box
+	  box-closest-point
 	  box-intersection
 	  box-contains-point
 	  box-empty-p

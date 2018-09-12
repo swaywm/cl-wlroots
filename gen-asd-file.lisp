@@ -3,6 +3,8 @@
 (defun build-deps (file-name &key (req-first :grovel) (depends-on ()))
   (let ((grovel-name (concatenate 'string file-name "-grovel"))
 	(full-deps (cons "package" depends-on)))
+    (when (not (string-equal file-name "common"))
+      (push "common" full-deps))
     (ecase req-first
 	     (:grovel (list (list :cffi-grovel-file grovel-name :depends-on full-deps)
 			    (list :file file-name :depends-on `(,grovel-name))))

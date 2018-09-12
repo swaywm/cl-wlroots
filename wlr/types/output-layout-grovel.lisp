@@ -5,7 +5,7 @@
 
 ;; (cstruct output_layout_state "struct wlr_output_layout_state")
 
-(cstruct output_layout "struct wlr_output_layout"
+(cstruct output-layout "struct wlr_output_layout"
 	 (:outputs "outputs" :type (:struct wl_list))
 	 ;;(:state "state" :type (:pointer (:struct output_layout_state)))
 	 (:state "state" :type :pointer)
@@ -15,7 +15,7 @@
 	 (:data "data" :type :pointer))
 
 
-(cstruct output_layout_output "struct wlr_output_layout_output"
+(cstruct output-layout-output "struct wlr_output_layout_output"
 	 (:output "output" :type (:pointer (:struct output)))
 	 (:x "x" :type :int)
 	 (:y "y" :type :int)
