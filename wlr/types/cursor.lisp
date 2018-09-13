@@ -1,28 +1,45 @@
 (in-package #:cl-wlroots/types/cursor)
 
+(export  '(cursor
+	   cursor-absolute-to-layout-coords
+	   cursor-attach-input-device
+	   cursor-attach-output-layout
+	   cursor-create
+	   cursor-destroy
+	   cursor-detach-input-device
+	   cursor-map-input-to-output
+	   cursor-map-input-to-region
+	   cursor-map-to-output
+	   cursor-map-to-region
+	   cursor-move
+	   cursor-set-image
+	   cursor-set-surface
+	   cursor-warp
+	   cursor-warp-absolute))
+
 (defcfun ("wlr_cursor_create" cursor-create) (:pointer (:struct cursor)))
 
 (defcfun ("wlr_cursor_destroy" cursor-destroy) :void
   (cursor (:pointer (:struct cursor))))
 
 (defcfun ("wlr_cursor_warp" cursor-warp) :bool
-  " * Warp the cursor to the given x and y in layout coordinates. If x and y are
- * out of the layout boundaries or constraints, no warp will happen.
- *
- * `dev` may be passed to respect device mapping constraints. If `dev` is NULL,
- * device mapping constraints will be ignored.
- *
- * Returns true when the cursor warp was successful."
+  "Warp the cursor to the given x and y in layout coordinates. If x and y are
+out of the layout boundaries or constraints, no warp will happen.
+
+`dev` may be passed to respect device mapping constraints. If `dev` is NULL,
+device mapping constraints will be ignored.
+
+Returns true when the cursor warp was successful."
   (cursor (:pointer (:struct cursor)))
   (device (:pointer (:struct input-device)))
   (lx :double)
   (ly :double))
 
 (defcfun ("wlr_cursor_absolute_to_layout_coords" cursor-absolute-to-layout-coords) :void
-  " * Convert absolute 0..1 coordinates to layout coordinates.
- *
- * `dev` may be passed to respect device mapping constraints. If `dev` is NULL,
- * device mapping constraints will be ignored."
+  "Convert absolute 0..1 coordinates to layout coordinates.
+
+`dev` may be passed to respect device mapping constraints. If `dev` is NULL,
+device mapping constraints will be ignored."
   (cursor (:pointer (:struct cursor)))
   (device (:pointer (:struct input-device)))
   (x :double)
