@@ -10,7 +10,7 @@
 
 (defcfun ("wlr_renderer_autocreate" renderer-autocreate) (:pointer (:struct renderer))
   ;; (egl (:pointer (:struct egl)))
-  (platform egl:eglenum)
+  (platform egl::eglenum)
   (remote-display (:pointer :void))
   (config_attribs (:pointer egl:EGLint)))
 
