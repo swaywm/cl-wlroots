@@ -5,19 +5,27 @@
 
 ** Installation Instructions
 *** Requirements
+    Install the following libraries from source:
     + [[https://github.com/swaywm/wlroots][wlroots]]. Install it per the directions in the project's
       readme. The submodule included in this repository will always
-      work, but will always be behind several commits.
+      work, but may be behind several commits.
     + [[https://www.quicklisp.org][quicklisp]]. Used to install dependencies such as cffi, cffi-grovel.
     + [[https://github.com/sdilts/cl-wayland][cl-wayland]]. As of the time of writing, the distribution included
       with quicklisp is not up to date with the latest changes. Use
       the devel branch of linked repository instead; it will always be
       up to date.
+    # TODO: add link to the proper library
+    + [[https://github.com/sdilts/cl-xkbcommon][cl-xkbcommon]]. Not to be confused with `cl-xkb` shipped with
+      `quicklisp`.
+    As more and more parts of the library are added, the lisp
+    dependencies may change. If a dependency that isn't automatically
+    supplied by `quicklisp` is not listed here, please file an issue.
 *** Installation
     Download this project to a place that asdf can see it, or add its
     path to asdf's source registry. Both of these solutions are
     explained in the [[https://common-lisp.net/project/asdf/asdf/Configuring-ASDF-to-find-your-systems.html][asdf manual]].
-    An additional solution is to download it to =~/quicklisp/local-projects=. You can then load the project with
+    An additional solution is to download it to
+    =~/quicklisp/local-projects=. You can then load the project with
     ~(ql:quickload "cl-wlroots")~.
 ** Usage
    Every symbol and function is exported under the ~wlr~ package. If
@@ -27,4 +35,5 @@
    package. An notable exception to this is ~wlr/types/input-devices~,
    which contains all of the code for the input devices.
 ** Examples
-  Example programs can be found in the =test= directory.
+  Example programs can be found in the =example= directory. Use
+  [[https://github.com/roswell/roswell][Roswell]] to run them.
