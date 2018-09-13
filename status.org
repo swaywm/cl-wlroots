@@ -1,0 +1,93 @@
+#+TODO: TODO IN-PROGRESS BROKEN DONE
+This file is an [[https://orgmode.org/][org-mode]] document. See [[https://orgmode.org/worg/org-tutorials/org4beginners.html][org-beginners]] for information
+on how to use it.
+Useful keybindings:
++ =Shift-left= and =Shift-right= change header status
++ =C-c C-c= =(org-toggle-checkbox)=
+
+Header files that still need to be ported over/are incomplete. If an
+interface is broken, this is the place to record it. If this is the
+case, use the =BROKEN= header.
+
+* IN-PROGRESS wlr/ [0%]
++ [X] backend.h
++ [ ] config.h
++ [ ] version.h
++ [ ] xcursor.h
++ [ ] xwayland.h
+* IN-PROGRESS backend/ [12%]
+ + [ ] drm.h
+ + [ ] headless.h
+ + [ ] interface.h
+ + [ ] libinput.h
+ + [ ] multi.h
+ + [X] session.h
+ + [ ] wayland.h
+ + [ ] x11.h
+** TODO backend/session/ [0%]
+   + [ ] interface.h
+* TODO interfaces/ [0%]
+  + [ ] wlr_input_device.h
+  + [ ] wlr_keyboard.h
+  + [ ] wlr_output.h
+  + [ ] wlr_pointer.h
+  + [ ] wlr_tablet_pad.h
+  + [ ] wlr_tablet_tool.h
+  + [ ] wlr_touch.h
+* IN-PROGRESS Renderer/ [0%]
+  + [ ] dmabuf.h
+  + [ ] egl.h
+  + [ ] gles2.h
+  + [ ] interface.h
+  + [ ] wlr_renderer.h
+    + In progress
+  + [ ] wlr_texture.h
+* IN-PROGRESS Types/ [3%]
+  + [X] wlr_box.h
+  + [ ] wlr_buffer.h
+  + [ ] wlr_compositor.h
+  + [ ] wlr_data_device
+    + in progress
+  + [ ] wlr_export_dmabuf_v1.h
+  + [ ] wlr_gamma_control.h
+  + [ ] wlr_idle.h
+  + [ ] wlr_idle_inhibit_v1.h
+  + [ ] wlr_input_inhibitor
+  + [ ] wlr_layer_shell
+  + [ ] wlr_linux_dmabuf_v1.h
+  + +wlr_list.h+?
+    + may or may not be needed
+  + [ ] wlr_matrix.h
+  + [ ] wlr_output.h
+    + in progress
+  + [ ] wlr_output_damage.h
+    + in progress
+  + [ ] wlr_output_layout.h
+    + in progress
+  + [ ] wlr_primary_selection.h
+  + [ ] wlr_region.h
+  + [ ] wlr_screencopy_v1.h
+  + [ ] wlr_screenshooter.h
+  + [ ] wlr_seat.h
+    + in progress
+  + [ ] wlr_server_decoration.h
+  + [ ] wlr_surface.h
+  + [ ] wlr_virtual_keyboard.h
+  + [ ] wlr_wl_shell.h
+  + [ ] wlr_xcursor_manager.h
+  + [ ] wlr_xdg_decoration_v1.h
+  + [ ] wlr_xdg_shell.h
+  + [ ] wlr_xdg_shell_v6
+** Input devices [42%]
+   + [X] wlr_cursor
+   + [ ] wlr_input_device
+     + in progress
+   + [X] wlr_keyboard
+   + [X] wlr_pointer.h
+   + [ ] wlr_tablet_pad.h
+   + [ ] wlr_tablet_tool.h
+   + [ ] wlr_touch.h
+* IN-PROGRESS util/ [33%]
+ * [X] log.h
+ * [ ] region.h
+ * [ ] edges.h
