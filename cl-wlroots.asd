@@ -25,8 +25,7 @@
 			 (:CFFI-GROVEL-FILE "types/box-grovel" :DEPENDS-ON ("common" "package"))
 			 (:FILE "types/box" :DEPENDS-ON ("types/box-grovel"))
 			 (:CFFI-GROVEL-FILE "types/cursor-grovel" :DEPENDS-ON
-					    ("common" "package" "types/input-device"
-						      "types/box" "types/output-layout"
+					    ("common" "package" "types/input-device" "types/box" "types/output-layout"
 						      "types/output"))
 			 (:FILE "types/cursor" :DEPENDS-ON ("types/cursor-grovel"))
 			 (:CFFI-GROVEL-FILE "types/data-device-grovel" :DEPENDS-ON
@@ -48,4 +47,6 @@
 					    ("common" "package" "types/data-device"))
 			 (:FILE "types/seat" :DEPENDS-ON ("types/seat-grovel"))
 			 (:CFFI-GROVEL-FILE "util/log-grovel" :DEPENDS-ON ("common" "package"))
-			 (:FILE "util/log" :DEPENDS-ON ("util/log-grovel")) (:FILE "final")))))
+			 (:FILE "util/log" :DEPENDS-ON ("util/log-grovel"))
+			 (:CFFI-GROVEL-FILE "version-grovel" :DEPENDS-ON ("common" "package"))
+			 (:FILE "version" :DEPENDS-ON ("version-grovel")) (:FILE "final")))))

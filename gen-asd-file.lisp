@@ -42,4 +42,5 @@
  '("types/output-layout" :depends-on ("types/output"))
  '("types/seat" :depends-on ("types/data-device"))
  '("util/log")
+ '("version")
  "final")

@@ -11,4 +11,5 @@
    #:cl-wlroots/types/output-layout
    #:cl-wlroots/types/input-devices
    #:cl-wlroots/types/seat
-   #:cl-wlroots/util/log))
+   #:cl-wlroots/util/log
+   #:cl-wlroots/wlr-version))
