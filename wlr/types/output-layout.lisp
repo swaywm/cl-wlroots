@@ -8,7 +8,10 @@
 	  output-layout-add-auto
 	  output-layout-remove))
 
-(defcfun ("wlr_output_layout_create" output-layout-create) (:pointer (:struct output-layout)))
+(defcfun "wlr_output_layout_create" (:pointer (:struct output-layout)))
+
+(cl-wlroots/base:def-initialization output-layout-create ()
+  'output-layout wlr-output-layout-create)
 
 (defcfun ("wlr_output_layout_destroy" output-layout-destroy) :void
   (output-layout (:pointer (:struct output-layout))))

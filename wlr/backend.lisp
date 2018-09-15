@@ -12,9 +12,12 @@
 ;;   (new_input (:struct wl_signal))
 ;;   (new_output (:struct wl_signal)))
 
-(defcfun ("wlr_backend_autocreate" backend-autocreate) (:pointer (:struct backend))
+(defcfun "wlr_backend_autocreate" (:pointer (:struct backend))
   (display :pointer)
-  (create_renderer_func :pointer))
+  (create-renderer-func :pointer))
+
+(def-initialization backend-autocreate (display create-renderer-func)
+  'backend wlr-backend-autocreate)
 
 (defcfun ("wlr_backend_start" backend-start) :bool
   (backend (:pointer (:struct backend))))

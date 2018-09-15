@@ -12,6 +12,9 @@
 	  drag
 	  drag-motion-event))
 
-(defcfun ("wlr_data_device_manager_create" data-device-manager-create)
+(defcfun "wlr_data_device_manager_create"
     (:pointer (:struct data-device-manager))
   (display :pointer))
+
+(def-initialization data-device-manager-create (display)
+  'data-device-manager wlr-data-device-manager-create)

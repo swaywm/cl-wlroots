@@ -17,7 +17,9 @@
 	   cursor-warp
 	   cursor-warp-absolute))
 
-(defcfun ("wlr_cursor_create" cursor-create) (:pointer (:struct cursor)))
+(defcfun "wlr_cursor_create" (:pointer (:struct cursor)))
+
+(def-initialization cursor-create () 'cursor wlr-cursor-create)
 
 (defcfun ("wlr_cursor_destroy" cursor-destroy) :void
   (cursor (:pointer (:struct cursor))))

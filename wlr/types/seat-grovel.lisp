@@ -3,6 +3,50 @@
 (cc-flags "-DWLR_USE_UNSTABLE")
 (include "wlr/types/wlr_seat.h")
 
+(cstruct seat "struct wlr_seat")
+
+(cstruct seat-client "struct wlr_seat_client"
+	 (:client "client" :type :pointer)
+	 (:seat "seat" :type seat)
+	 (:resources "resources" :type (:struct wl_list))
+	 (:pointers "pointers" :type (:struct wl_list))
+	 (:keyboards "keyboards" :type (:struct wl_list))
+	 (:touches "touches" :type (:struct wl_list))
+	 (:data-devices "data_devices" :type (:struct wl_list))
+	 (:primary-selection_devices "primary_selection_devices" :type (:struct wl_list))
+	 (:event-destroy "events.destroy" :type (:struct wl_signal))
+	 (:link "link" :type (:struct wl_list)))
+
+(cstruct  seat-pointer-state "struct wlr_seat_pointer_state"
+	  (:seat "seat" :type (:struct seat))
+	  (:focused-client "focused_client" :type (:struct seat))
+	  ;; wlr_surface
+	  (:focused_surface "focused_surface" :type :pointer)
+	  ;; wlr_seat_pointer_grab
+	  (:grab "grab" :type :pointer)
+	  ;; wlr_seat_pointer_grab
+	  (:default-grab "default_grab" :type :pointer)
+
+	  (:grab-button "grab_button" :type :uint32)
+	  (:grab-serial "grab_serial" :type :uint32)
+	  (:grab-time "grab_time" :type :uint32)
+	  (:surface-destroy "surface_destroy" :type(:struct wl_listener)))
+
+(cstruct seat-keyboard-grab "struct wlr_seat_keyboard_grab")
+(cstruct seat-touch-grab "struct wlr_seat_touch_grab")
+;; (cstruct seat-pointer-grab
+
+(cstruct seat-keyboard-state "struct wlr_seat_keyboard_state"
+	 (:seat "seat" :type (:pointer (:struct seat)))
+	 (:keyboard "keyboard" :type (:struct keyboard))
+	 (:focused_client "focused_client" :type (:struct seat-client))
+	 ;; (:focused_surface "focused_surface" :type (:struct surface))
+	 (:keyboard_destroy "keyboard_destroy" :type (:struct wl_listener))
+	 (:keyboard_keymap "keyboard_keymap" :type (:struct wl_listener))
+	 (:keyboard_repeat_info "keyboard_repeat_info" :type (:struct wl_listener))
+	 (:surface_destroy "surface_destroy" :type (:struct wl_listener))
+	 (:grab "grab" :type (:struct seat-keyboard-grab))
+	 (:default_grab "default_grab" :type (:struct seat-keyboard-grab)))
 
 ;; commented out items are fields that are probably needed, but cannot be
 ;; used as their foriegn type hasn't been determined yet.
@@ -15,7 +59,7 @@
 	 (:name "name" :type :string)
 	 (:capabilities "capabilities" :type :uint32)
 
-	 ;; (:last-event "last_event")
+	 (:last-event "last_event" :type (:struct timespec))
 	 (:selection-source "selection_source" :type (:pointer (:struct data-source)))
 	 (:selection_serial "selection_serial" :type :uint32)
 
@@ -25,8 +69,8 @@
 	 (:drag "drag" :type (:pointer (:struct drag)))
 	 (:drag-source "drag_source" :type (:pointer (:struct data-source)))
 	 (:drag-serial "drag_serial" :type :uint32)
-	 ;; (:pointer-state "pointer_state" :type (:struct seat-pointer-state))
-	 ;; (:keyboard-state "keyboard_state" :type (:struct seat-keyboard-state))
+	 (:pointer-state "pointer_state" :type (:struct seat-pointer-state))
+	 (:keyboard-state "keyboard_state" :type (:struct seat-keyboard-state))
 	 ;; (:touch-state "touch_state" :type (:struct seat-touch-state))
 
 	 (:display-destroy "display_destroy" :type (:struct wl_listener))
@@ -55,6 +99,26 @@
 
 	 (:data "data" :type :pointer))
 
-;; (cstruct seat_client "wlr_seat_client"
-;; 	 (:client "client" (:pointer (:struct client)))
-;; 	 (:seat   "seat"   (:pointer (:struct seat)))
+
+(cstruct pointer-grab-interface "struct wlr_pointer_grab_interface"
+	 (:enter "enter" :type :pointer)
+	 (:motion "motion" :type :pointer)
+	 (:axis "axis" :type :pointer)
+	 (:cancel "cancel" :type :pointer))
+
+(cstruct keyboard-grab-interface "struct wlr_keyboard_grab_interface"
+	 (:enter "enter" :type :pointer)
+	 (:key "key" :type :pointer)
+	 (:modifiers "modifiers" :type :pointer)
+	 (:cancel "cancel" :type :pointer))
+
+
+
+(cstruct touch-grab-interface "struct wlr_touch_grab_interface"
+	 (:down "down" :type :pointer)
+	 (:up "up" :type :pointer)
+	 (:motion "motion" :type :pointer)
+	 (:enter "enter" :type :pointer)
+	 ;; XXX this will conflict with the actual touch cancel which is different so
+	 ;; we need to rename this
+	(:cancel "cancel" :type :pointer))
