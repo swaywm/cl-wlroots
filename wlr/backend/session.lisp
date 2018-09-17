@@ -10,7 +10,11 @@
 	  session-change-vt
 	  session-find-gpus))
 
-(defcfun ("wlr_session_create" session-create) (:pointer (:struct session))
+(defcfun "wlr_session_create" (:pointer (:struct session))
+    (disp :pointer))
+
+(def-initialization session-create (display)
+  'session wlr-session-create
   "Opens a session, taking control of the current virtual terminal.
 This should not be called if another program is already in control
 of the terminal (Xorg, another Wayland compositor, etc.).
@@ -19,8 +23,8 @@ If logind support is not enabled, you must have CAP_SYS_ADMIN or
 be root.
 It is safe to drop privileges after this is called.
 
-Returns NULL on error."
-  (disp :pointer))
+Returns NULL on error.")
+
 
 (defcfun ("wlr_session_destroy" session-destroy) :void
   "Closes a previously opened session and restores the virtual
