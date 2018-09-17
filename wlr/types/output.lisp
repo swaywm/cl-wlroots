@@ -2,7 +2,7 @@
 
 (export '(output_mode
 	  output
-	  output_cursor
+	  output-cursor
 	  output-enable
 	  output-make-current
 	  output-swap-buffers

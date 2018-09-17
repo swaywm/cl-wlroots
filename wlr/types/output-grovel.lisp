@@ -13,7 +13,7 @@
 
 (cstruct output "struct wlr_output")
 
-(cstruct output_cursor "struct wlr_output_cursor"
+(cstruct output-cursor "struct wlr_output_cursor"
 	 (:output "output" :type (:pointer (:struct output)))
 	 (:x "x" :type :double)
 	 (:y "y" :type :double)
