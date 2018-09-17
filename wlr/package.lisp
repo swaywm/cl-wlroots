@@ -8,6 +8,9 @@
 
 ;;(defpackage #:wlr)
 
+(defpackage #:cl-wlroots/wlr-version
+  (:use :cl :alexandria))
+
 (defpackage #:cl-wlroots/base
   (:use :cl :cffi))
 
