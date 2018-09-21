@@ -7,7 +7,7 @@
 
 (cstruct seat-client "struct wlr_seat_client"
 	 (:client "client" :type :pointer)
-	 (:seat "seat" :type seat)
+	 (:seat "seat" :type (:pointer (:struct seat)))
 	 (:resources "resources" :type (:struct wl_list))
 	 (:pointers "pointers" :type (:struct wl_list))
 	 (:keyboards "keyboards" :type (:struct wl_list))
