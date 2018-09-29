@@ -12,7 +12,7 @@
   :components
   ((:module wlr
 	    ;; use the functions in gen-asd-file.lisp to generate the file list:
-	    :components ((:FILE "package") (:FILE "base")
+	    :components ((:FILE "package") (:FILE "error") (:FILE "base")
 			 (:CFFI-GROVEL-FILE "common-grovel" :DEPENDS-ON ("package"))
 			 (:FILE "common" :DEPENDS-ON ("common-grovel"))
 			 (:FILE "config" :DEPENDS-ON ("common" "package"))

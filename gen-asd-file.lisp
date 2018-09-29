@@ -26,6 +26,7 @@
 ;; specify :req-first :file
 (build-files
  "package"
+ "error"
  "base"
  '("common")
  '("config" :req-first :file)

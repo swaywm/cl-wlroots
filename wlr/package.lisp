@@ -2,13 +2,16 @@
 
 
 
+(defpackage #:wlr/error
+  (:use :cl))
+
 (defpackage #:wlr/wlr-version
   (:use :cl :alexandria))
 
 (defpackage #:wlr/config)
 
 (defpackage #:wlr/base
-  (:use :cl :cffi))
+  (:use :cl :cffi #:wlr/error))
 
 (defpackage #:wlr/common
   (:use :cffi :cl))

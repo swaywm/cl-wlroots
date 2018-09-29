@@ -3,6 +3,7 @@
    #:wlr/backend
    #:wlr/backend/session
    #:wlr/config
+   #:wlr/error
    #:wlr/render/renderer
    #:wlr/types/box
    #:wlr/types/cursor
