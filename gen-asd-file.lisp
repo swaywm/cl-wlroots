@@ -28,6 +28,7 @@
  "package"
  "base"
  '("common")
+ '("config" :req-first :file)
  ;; this depends on a lot of stuff, not all implemented:
  '("backend" :depends-on ("render/renderer" "backend/session"))
  '("backend/session")

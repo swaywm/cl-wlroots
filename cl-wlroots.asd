@@ -15,6 +15,8 @@
 	    :components ((:FILE "package") (:FILE "base")
 			 (:CFFI-GROVEL-FILE "common-grovel" :DEPENDS-ON ("package"))
 			 (:FILE "common" :DEPENDS-ON ("common-grovel"))
+			 (:FILE "config" :DEPENDS-ON ("common" "package"))
+			 (:CFFI-GROVEL-FILE "config-grovel" :DEPENDS-ON ("config"))
 			 (:CFFI-GROVEL-FILE "backend-grovel" :DEPENDS-ON
 					    ("common" "package" "render/renderer" "backend/session"))
 			 (:FILE "backend" :DEPENDS-ON ("backend-grovel"))
