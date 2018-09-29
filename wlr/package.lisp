@@ -53,7 +53,7 @@
   (:use :cffi :cl :wayland-server-core #:wlr/common))
 
 (defpackage #:wlr/backend/wayland
-  (:use :cl :cffi :wlr/backend :wlr/types/input-devices :wayland-server-core))
+  (:use :cl :cffi :wlr/base :wlr/backend :wlr/types/input-devices :wayland-server-core))
 
 (defpackage #:wlr/types/seat
   (:use :cffi :cl :wayland-server-core #:wlr/types/data-device

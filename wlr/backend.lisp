@@ -16,7 +16,7 @@
   (display :pointer)
   (create-renderer-func :pointer))
 
-(def-initialization backend-autocreate (display create-renderer-func)
+(def-initialization backend-autocreate (display &optional (create-renderer-func (cffi:null-pointer)))
   'backend wlr-backend-autocreate)
 
 (defcfun ("wlr_backend_start" backend-start) :bool

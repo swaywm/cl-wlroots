@@ -6,16 +6,20 @@
 	  input-device-is-wl-p
 	  output-is-wl-p))
 
-(defcfun ("wlr_wl_backend_create" wl-backend-create) (:struct backend)
+(defcfun "wlr_wl_backend_create" (:struct backend)
+  (display :pointer)
+  (remote (:pointer :char))
+  (create-renderer-func :pointer))
+
+(def-initialization wl-backend-create (display &optional (remote (null-pointer))
+					       (create-renderer-func (null-pointer)))
+  'backend wlr-wl-backend-create
   "Creates a new wlr:wl-backend. This backend will be created with no outputs;
 you must use wlr:wl-output_create to add them.
 
 The `remote` argument is the name of the host compositor wayland socket. Set
 to NULL for the default behaviour (WAYLAND_DISPLAY env variable or wayland-0
-default)"
-  (display :pointer)
-  (remote (:pointer :char))
-  (create-renderer-func :pointer))
+default)")
 
 (defcfun ("wlr_wl_output_create" wl-output-create) (:struct output)
   "Adds a new output to this backend. You may remove outputs by destroying them.
