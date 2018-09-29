@@ -14,11 +14,11 @@
       with quicklisp is not up to date with the latest changes. Use
       the devel branch of linked repository instead; it will always be
       up to date.
-    + [[https://github.com/sdilts/cl-xkbcommon][cl-xkbcommon]]. Not to be confused with `cl-xkb` shipped with
-      `quicklisp`.
+    + [[https://github.com/sdilts/cl-xkbcommon][cl-xkbcommon]]. Not to be confused with =cl-xkb= shipped with
+      =quicklisp=.
     As more and more parts of the library are added, the lisp
     dependencies may change. If a dependency that isn't automatically
-    supplied by `quicklisp` is not listed here, please file an issue.
+    supplied by =quicklisp= is not listed here, please file an issue.
 *** Installation
     Download this project to a place that asdf can see it, or add its
     path to asdf's source registry. Both of these solutions are
