@@ -112,8 +112,6 @@
 	 (:modifiers "modifiers" :type :pointer)
 	 (:cancel "cancel" :type :pointer))
 
-
-
 (cstruct touch-grab-interface "struct wlr_touch_grab_interface"
 	 (:down "down" :type :pointer)
 	 (:up "up" :type :pointer)

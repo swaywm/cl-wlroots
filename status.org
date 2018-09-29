@@ -15,14 +15,14 @@ case, use the =BROKEN= header.
   + [X] version.h
   + [ ] xcursor.h
   + [ ] xwayland.h
-* IN-PROGRESS backend/ [12%]
+* IN-PROGRESS backend/ [25%]
   + [ ] drm.h
   + [ ] headless.h
   + [ ] interface.h
   + [ ] libinput.h
   + [ ] multi.h
   + [X] session.h
-  + [ ] wayland.h
+  + [X] wayland.h
   + [ ] x11.h
 ** TODO backend/session/ [0%]
    + [ ] interface.h

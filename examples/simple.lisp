@@ -199,7 +199,6 @@
 	 (renderer (wlr:backend-get-renderer backend))
 	 (new-output-listener (make-listener handle-new-output))
 	 (new-input-listener (make-listener new-input-notify)))
-    (assert (not (cffi:null-pointer-p backend)))
     (assert (not (cffi:null-pointer-p renderer)))
     (wlr:renderer-init-wl-display renderer display)
 

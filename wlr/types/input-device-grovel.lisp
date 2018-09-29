@@ -51,7 +51,7 @@
 	 (:group "group" :type  "xkb:mod-mask"))
 
 (cstruct keyboard "struct wlr_keyboard"
-	 (:keymap-id "keymap_fd" :type :int)
+	 (:keymap-string "keymap_string" :type :string)
 	 (:keymap-size "keymap_size" :type size-t)
 	 (:keymap "keymap" :type :pointer)
 	 (:xkb-state "xkb_state" :type :pointer)

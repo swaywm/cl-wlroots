@@ -2,11 +2,6 @@
 (pkg-config-cflags "wlroots")
 (include "wlr/config.h")
 
-;; If pull request #132 at https://github.com/cffi/cffi/pull/132
-;; ever gets merged, use this code instead once the change
-;; has been put into quicklisp:
-
-
 (feature :wlr-libcap "WLR_HAS_LIBCAP")
 (feature :wlr-systemd "WLR_HAS_SYSTEMD")
 (feature :wlr-elogind "WLR_HAS_ELOGIND")

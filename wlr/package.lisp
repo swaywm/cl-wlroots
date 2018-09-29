@@ -1,15 +1,11 @@
 ;;;; package.lisp
 
-;; (defpackage #:cl-wlr
-;;   (:use #:cl))
 
-;; (defpackage #:wayland-server
-;;   (:documentation "Wayland server interface"))
-
-;;(defpackage #:wlr)
 
 (defpackage #:cl-wlroots/wlr-version
   (:use :cl :alexandria))
+
+(defpackage #:cl-wlroots/config)
 
 (defpackage #:cl-wlroots/base
   (:use :cl :cffi))
@@ -52,6 +48,9 @@
 
 (defpackage #:cl-wlroots/types/input-devices
   (:use :cffi :cl :wayland-server-core #:cl-wlroots/common))
+
+(defpackage #:cl-wlroots/backend/wayland
+  (:use :cl :cffi :cl-wlroots/backend :cl-wlroots/types/input-devices :wayland-server-core))
 
 (defpackage #:cl-wlroots/types/seat
   (:use :cffi :cl :wayland-server-core #:cl-wlroots/types/data-device
