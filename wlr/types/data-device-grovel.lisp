@@ -1,4 +1,4 @@
-(in-package #:cl-wlroots/types/data-device)
+(in-package #:wlr/types/data-device)
 (pkg-config-cflags "wlroots")
 (cc-flags "-DWLR_USE_UNSTABLE")
 (include "wlr/types/wlr_data_device.h")

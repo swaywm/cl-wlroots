@@ -1,4 +1,4 @@
-(in-package #:cl-wlroots/backend)
+(in-package #:wlr/backend)
 (pkg-config-cflags "wlroots")
 (cc-flags "-DWLR_USE_UNSTABLE")
 (include "wlr/backend.h")

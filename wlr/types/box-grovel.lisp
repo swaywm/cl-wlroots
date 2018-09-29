@@ -1,4 +1,4 @@
-(in-package #:cl-wlroots/types/box)
+(in-package #:wlr/types/box)
 (pkg-config-cflags "wlroots")
 (cc-flags "-DWLR_USE_UNSTABLE")
 (include "wlr/types/wlr_box.h")

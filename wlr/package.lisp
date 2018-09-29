@@ -2,61 +2,61 @@
 
 
 
-(defpackage #:cl-wlroots/wlr-version
+(defpackage #:wlr/wlr-version
   (:use :cl :alexandria))
 
-(defpackage #:cl-wlroots/config)
+(defpackage #:wlr/config)
 
-(defpackage #:cl-wlroots/base
+(defpackage #:wlr/base
   (:use :cl :cffi))
 
-(defpackage #:cl-wlroots/common
+(defpackage #:wlr/common
   (:use :cffi :cl))
 
-(defpackage #:cl-wlroots/util/log
+(defpackage #:wlr/util/log
   (:use :cffi :cl))
 
-(defpackage #:cl-wlroots/types/box
+(defpackage #:wlr/types/box
   (:use :cl :cffi :wayland-server-protocol))
 
-(defpackage #:cl-wlroots/render/renderer
+(defpackage #:wlr/render/renderer
   (:use :cffi :cl :wayland-server-core :egl :wayland-server-core))
 
-(defpackage #:cl-wlroots/backend/session
-  (:use :cl :cffi :wayland-server-core :cl-wlroots/common
-	#:cl-wlroots/base))
+(defpackage #:wlr/backend/session
+  (:use :cl :cffi :wayland-server-core :wlr/common
+	#:wlr/base))
 
-(defpackage #:cl-wlroots/backend
+(defpackage #:wlr/backend
   (:use :cl :cffi :wayland-server-core
-	:cl-wlroots/backend/session
-	:cl-wlroots/render/renderer
-	:cl-wlroots/base))
+	:wlr/backend/session
+	:wlr/render/renderer
+	:wlr/base))
 
-(defpackage #:cl-wlroots/types/output
-  (:use :cffi :cl :wayland-server-core #:cl-wlroots/backend))
+(defpackage #:wlr/types/output
+  (:use :cffi :cl :wayland-server-core #:wlr/backend))
 
-(defpackage #:cl-wlroots/types/output-layout
-  (:use :cffi :cl :wayland-server-core #:cl-wlroots/types/output))
+(defpackage #:wlr/types/output-layout
+  (:use :cffi :cl :wayland-server-core #:wlr/types/output))
 
-(defpackage #:cl-wlroots/types/data-device
+(defpackage #:wlr/types/data-device
   (:use :cffi :cl :wayland-server-core
-	#:cl-wlroots/base))
+	#:wlr/base))
 
-(defpackage #:cl-wlroots/types/output-damage
-  (:use :cffi :cl :wayland-server-core #:cl-wlroots/base
-	#:cl-wlroots/types/output))
+(defpackage #:wlr/types/output-damage
+  (:use :cffi :cl :wayland-server-core #:wlr/base
+	#:wlr/types/output))
 
-(defpackage #:cl-wlroots/types/input-devices
-  (:use :cffi :cl :wayland-server-core #:cl-wlroots/common))
+(defpackage #:wlr/types/input-devices
+  (:use :cffi :cl :wayland-server-core #:wlr/common))
 
-(defpackage #:cl-wlroots/backend/wayland
-  (:use :cl :cffi :cl-wlroots/backend :cl-wlroots/types/input-devices :wayland-server-core))
+(defpackage #:wlr/backend/wayland
+  (:use :cl :cffi :wlr/backend :wlr/types/input-devices :wayland-server-core))
 
-(defpackage #:cl-wlroots/types/seat
-  (:use :cffi :cl :wayland-server-core #:cl-wlroots/types/data-device
-	#:cl-wlroots/types/input-devices #:cl-wlroots/common #:cl-wlroots/base))
+(defpackage #:wlr/types/seat
+  (:use :cffi :cl :wayland-server-core #:wlr/types/data-device
+	#:wlr/types/input-devices #:wlr/common #:wlr/base))
 
-(defpackage #:cl-wlroots/types/cursor
-  (:use :cffi :cl :wayland-server-core #:cl-wlroots/types/input-devices
-	#:cl-wlroots/types/box #:cl-wlroots/types/output-layout #:cl-wlroots/types/output
-	#:cl-wlroots/base))
+(defpackage #:wlr/types/cursor
+  (:use :cffi :cl :wayland-server-core #:wlr/types/input-devices
+	#:wlr/types/box #:wlr/types/output-layout #:wlr/types/output
+	#:wlr/base))

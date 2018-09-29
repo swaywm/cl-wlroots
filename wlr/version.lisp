@@ -1,4 +1,4 @@
-(in-package #:cl-wlroots/wlr-version)
+(in-package #:wlr/wlr-version)
 
 (export '(+wlr-version-str+
 	  +wlr-version-major+

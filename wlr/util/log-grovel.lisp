@@ -1,4 +1,4 @@
-(in-package #:cl-wlroots/util/log)
+(in-package #:wlr/util/log)
 (include "wlr/util/log.h")
 (cenum log-level
        ((:log-silent "WLR_SILENT"))

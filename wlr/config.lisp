@@ -1,1 +1,1 @@
-(in-package #:cl-wlroots/config)
+(in-package #:wlr/config)

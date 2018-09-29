@@ -1,4 +1,4 @@
-(in-package #:cl-wlroots/types/seat)
+(in-package #:wlr/types/seat)
 (pkg-config-cflags "wlroots")
 (cc-flags "-DWLR_USE_UNSTABLE")
 (include "wlr/types/wlr_seat.h")

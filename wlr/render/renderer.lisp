@@ -1,4 +1,4 @@
-(in-package :cl-wlroots/render/renderer)
+(in-package :wlr/render/renderer)
 
 (export '(renderer
 	  renderer-autocreate

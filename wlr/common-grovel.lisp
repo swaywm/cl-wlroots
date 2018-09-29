@@ -1,4 +1,4 @@
-(in-package #:cl-wlroots/common)
+(in-package #:wlr/common)
 (include "time.h")
 (include "stddef.h")
 

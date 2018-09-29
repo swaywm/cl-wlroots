@@ -1,4 +1,4 @@
-(in-package #:cl-wlroots/types/input-devices)
+(in-package #:wlr/types/input-devices)
 
 ;; keyboard.lisp
 (export '(;; all of the grovelled types:

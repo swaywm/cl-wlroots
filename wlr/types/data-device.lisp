@@ -1,4 +1,4 @@
-(in-package #:cl-wlroots/types/data-device)
+(in-package #:wlr/types/data-device)
 
 ;; (defcvar ("wlr_data_device_pointer_drag_interface"
 ;; 	  data-device-pointer-drag-interface))

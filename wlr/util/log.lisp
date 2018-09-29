@@ -1,4 +1,4 @@
-(in-package #:cl-wlroots/util/log)
+(in-package #:wlr/util/log)
 
 (export '(log-init log-level))
 

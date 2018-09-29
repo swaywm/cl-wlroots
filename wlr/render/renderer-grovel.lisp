@@ -1,4 +1,4 @@
-(in-package #:cl-wlroots/render/renderer)
+(in-package #:wlr/render/renderer)
 (pkg-config-cflags "wlroots")
 (cc-flags "-DWLR_USE_UNSTABLE")
 (include "wlr/render/wlr_renderer.h")

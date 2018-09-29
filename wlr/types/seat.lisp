@@ -1,4 +1,4 @@
-(in-package #:cl-wlroots/types/seat)
+(in-package #:wlr/types/seat)
 
 (export '(seat
 	  seat-create

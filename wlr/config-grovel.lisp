@@ -1,4 +1,4 @@
-(in-package #:cl-wlroots/config)
+(in-package #:wlr/config)
 (pkg-config-cflags "wlroots")
 (include "wlr/config.h")
 

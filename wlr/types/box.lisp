@@ -1,4 +1,4 @@
-(in-package #:cl-wlroots/types/box)
+(in-package #:wlr/types/box)
 
 (export '(box
 	  box-closest-point

@@ -1,4 +1,4 @@
-(in-package #:cl-wlroots/types/cursor)
+(in-package #:wlr/types/cursor)
 
 (export  '(cursor
 	   cursor-absolute-to-layout-coords

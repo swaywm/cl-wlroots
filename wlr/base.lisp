@@ -1,4 +1,4 @@
-(in-package #:cl-wlroots/base)
+(in-package #:wlr/base)
 
 (export '(initialization-error
 	  def-initialization))

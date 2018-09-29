@@ -1,4 +1,4 @@
-(in-package #:cl-wlroots/types/output)
+(in-package #:wlr/types/output)
 
 (export '(output_mode
 	  output

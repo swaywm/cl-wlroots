@@ -1,4 +1,4 @@
-(in-package #:cl-wlroots/types/cursor)
+(in-package #:wlr/types/cursor)
 (pkg-config-cflags "wlroots")
 (cc-flags "-DWLR_USE_UNSTABLE")
 (include "wlr/types/wlr_cursor.h")

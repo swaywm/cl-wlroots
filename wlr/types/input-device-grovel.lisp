@@ -1,4 +1,4 @@
-(in-package #:cl-wlroots/types/input-devices)
+(in-package #:wlr/types/input-devices)
 (pkg-config-cflags "wlroots")
 (cc-flags "-DWLR_USE_UNSTABLE")
 (include "wlr/types/wlr_keyboard.h")

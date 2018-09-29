@@ -1,4 +1,4 @@
-(in-package #:cl-wlroots/backend/session)
+(in-package #:wlr/backend/session)
 (pkg-config-cflags "wlroots")
 (include "wlr/backend/session.h")
 

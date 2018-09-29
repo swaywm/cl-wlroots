@@ -1,4 +1,4 @@
-(in-package :cl-wlroots/backend/wayland)
+(in-package :wlr/backend/wayland)
 
 (export '(wl-backend-create
 	  wl-output-create

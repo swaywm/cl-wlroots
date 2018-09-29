@@ -1,4 +1,4 @@
-(in-package #:cl-wlroots/backend/session)
+(in-package #:wlr/backend/session)
 
 (export '(session
 	  device

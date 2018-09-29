@@ -1,4 +1,4 @@
-(in-package #:cl-wlroots/types/output)
+(in-package #:wlr/types/output)
 (pkg-config-cflags "wlroots")
 (cc-flags "-DWLR_USE_UNSTABLE")
 (include "wlr/types/wlr_output.h")

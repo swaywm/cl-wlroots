@@ -1,4 +1,4 @@
-(in-package #:cl-wlroots/types/output-damage)
+(in-package #:wlr/types/output-damage)
 
 (export '(output-damage
 	  output-damage-create

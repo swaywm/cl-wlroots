@@ -1,4 +1,4 @@
-(in-package #:cl-wlroots/backend)
+(in-package #:wlr/backend)
 
 (export '(backend
 	  backend-events
