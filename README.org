@@ -31,7 +31,7 @@
    you want to go on a file-by-file basis, each c header corresponds to a
    package. For example, all of the functions in
    ~wlr/types/wlr_output.h~ can be found in the ~wlr/types/output~
-   package. An notable exception to this is ~wlr/types/input-devices~,
+   package. A notable exception to this is ~wlr/types/input-devices~,
    which contains all of the code for the input devices.
 ** Examples
   Example programs can be found in the =example= directory. Use
