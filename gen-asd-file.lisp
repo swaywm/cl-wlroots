@@ -34,6 +34,7 @@
  '("backend" :depends-on ("render/renderer" "backend/session"))
  '("backend/session")
  '("render/renderer")
+ "backend/wayland"
  '("types/box")
  '("types/cursor" :depends-on ("types/input-device" "types/box"
 			       "types/output-layout" "types/output"))

@@ -24,11 +24,11 @@
       (reverse flattened-args))))
 
 (defmacro def-initialization (func-name (&rest args) type creation-function &optional doc)
-  "Create a function with function name FUNC-NAME and arguements ARGS. In the function, call
-creation-function and signal an error showing the wlr type TYPE if the result is a cffi:null-pointer.
+  "Create a function with function name FUNC-NAME and arguments ARGS. In the function, call
+CREATION-FUNCTION and signal an error showing the wlr type TYPE if the result is a cffi:null-pointer.
 
 Optional arguments are allowed, and passed to creation-function in the order that they appear. You
-must specify a default value for these arguments."
+must specify a default value for these arguments. Other special argument types are not allowed."
   ;; lambda-lists with &optional parameters can't go directly into the function call
   ;; and need to be "flattened"
   (let ((flattened-args (flatten-args args)))

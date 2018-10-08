@@ -193,7 +193,7 @@
       (register-listener frame-listener new-output *listener-hash*))))
 
 (defun run-simple ()
-  (cl-wlroots/util/log:log-init :log-debug (cffi:null-pointer))
+  (wlr/util/log:log-init :log-debug (cffi:null-pointer))
   (let* ((display (wl-display-create))
 	 (backend (wlr:backend-autocreate display (cffi:null-pointer)))
 	 (renderer (wlr:backend-get-renderer backend))
