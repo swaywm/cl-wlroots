@@ -6,8 +6,7 @@
   :license  "MIT"
   :version "0.0.1"
   :defsystem-depends-on (#:cffi-grovel)
-  :depends-on (#:cffi #:cffi-grovel #:net.didierverna.declt
-		      #:cl-wayland #:cl-egl #:xkbcommon)
+  :depends-on (#:cffi #:cffi-grovel #:cl-wayland #:cl-egl #:xkbcommon #:alexandria)
   :serial t
   :components
   ((:module wlr
