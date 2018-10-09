@@ -4,7 +4,7 @@
 	  def-initialization))
 
 (define-foreign-library libwlroots
-  (:unix (:or "libwlroots.so.0.0.1" "libwlroots.so.0"))
+  (:unix (:or "libwlroots.so.0.0.1" "libwlroots.so.0" "libwlroots"))
   (t (:default "libwlroots")))
 
 (use-foreign-library libwlroots)
