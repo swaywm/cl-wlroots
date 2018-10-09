@@ -6,7 +6,7 @@
 	  input-device-is-wl-p
 	  output-is-wl-p))
 
-(defcfun "wlr_wl_backend_create" (:struct backend)
+(defcfun "wlr_wl_backend_create" (:pointer (:struct backend))
   (display :pointer)
   (remote (:pointer :char))
   (create-renderer-func :pointer))
@@ -21,7 +21,7 @@ The `remote` argument is the name of the host compositor wayland socket. Set
 to NULL for the default behaviour (WAYLAND_DISPLAY env variable or wayland-0
 default)")
 
-(defcfun ("wlr_wl_output_create" wl-output-create) (:struct output)
+(defcfun ("wlr_wl_output_create" wl-output-create) (:pointer (:struct output))
   "Adds a new output to this backend. You may remove outputs by destroying them.
  Note that if called before initializing the backend, this will return NULL
  and your outputs will be created during initialization (and given to you via
@@ -34,7 +34,7 @@ default)")
 
 (defcfun ("wlr_input_device_is_wl" input-device-is-wl-p) :bool
   "True if the given input device is a wl_input_device."
-  (device (:struct input-device)))
+  (device (:pointer (:struct input-device))))
 
 (defcfun ("wlr_output_is_wl" output-is-wl-p) :bool
   "True if the given output is a wl_output."

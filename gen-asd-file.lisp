@@ -1,15 +1,17 @@
 (in-package :cl-user)
 
-(defun build-deps (file-name &key (req-first :grovel) (depends-on ()))
+(defun build-deps (file-name &key (req-first :grovel) (depends-on ()) (has-grovel t))
   (let ((grovel-name (concatenate 'string file-name "-grovel"))
 	(full-deps (cons "package" depends-on)))
     (when (not (string-equal file-name "common"))
       (push "common" full-deps))
-    (ecase req-first
-	     (:grovel (list (list :cffi-grovel-file grovel-name :depends-on full-deps)
-			    (list :file file-name :depends-on `(,grovel-name))))
-	     (:file (list (list :file file-name :depends-on full-deps)
-			  (list :cffi-grovel-file grovel-name :depends-on `(,file-name)))))))
+    (if has-grovel
+	(ecase req-first
+	  (:grovel (list (list :cffi-grovel-file grovel-name :depends-on full-deps)
+			 (list :file file-name :depends-on `(,grovel-name))))
+	  (:file (list (list :file file-name :depends-on full-deps)
+		       (list :cffi-grovel-file grovel-name :depends-on `(,file-name)))))
+	(list (list :file file-name :depends-on full-deps)))))
 
 (defun build-files (&rest files)
   (let ((entry-list ()))
@@ -34,7 +36,7 @@
  '("backend" :depends-on ("render/renderer" "backend/session"))
  '("backend/session")
  '("render/renderer")
- "backend/wayland"
+ '("backend/wayland" :has-grovel nil :depends-on ("types/output" "types/input-device"))
  '("types/box")
  '("types/cursor" :depends-on ("types/input-device" "types/box"
 			       "types/output-layout" "types/output"))

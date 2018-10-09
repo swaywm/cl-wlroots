@@ -23,6 +23,8 @@
 			 (:FILE "backend/session" :DEPENDS-ON ("backend/session-grovel"))
 			 (:CFFI-GROVEL-FILE "render/renderer-grovel" :DEPENDS-ON ("common" "package"))
 			 (:FILE "render/renderer" :DEPENDS-ON ("render/renderer-grovel"))
+			 (:FILE "backend/wayland" :DEPENDS-ON
+				("common" "package" "types/output" "types/input-device"))
 			 (:CFFI-GROVEL-FILE "types/box-grovel" :DEPENDS-ON ("common" "package"))
 			 (:FILE "types/box" :DEPENDS-ON ("types/box-grovel"))
 			 (:CFFI-GROVEL-FILE "types/cursor-grovel" :DEPENDS-ON
