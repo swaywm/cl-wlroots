@@ -49,6 +49,8 @@
 			 (:CFFI-GROVEL-FILE "types/seat-grovel" :DEPENDS-ON
 					    ("common" "package" "types/data-device"))
 			 (:FILE "types/seat" :DEPENDS-ON ("types/seat-grovel"))
+			 (:CFFI-GROVEL-FILE "util/edges-grovel" :DEPENDS-ON ("common" "package"))
+			 (:FILE "util/edges" :DEPENDS-ON ("util/edges-grovel"))
 			 (:CFFI-GROVEL-FILE "util/log-grovel" :DEPENDS-ON ("common" "package"))
 			 (:FILE "util/log" :DEPENDS-ON ("util/log-grovel"))
 			 (:CFFI-GROVEL-FILE "version-grovel" :DEPENDS-ON ("common" "package"))

@@ -16,6 +16,9 @@
 (defpackage #:wlr/common
   (:use :cffi :cl))
 
+(defpackage #:wlr/util/edges
+  (:use :cffi :cl))
+
 (defpackage #:wlr/util/log
   (:use :cffi :cl))
 

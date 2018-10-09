@@ -87,7 +87,7 @@ case, use the =BROKEN= header.
    + [ ] wlr_tablet_pad.h
    + [ ] wlr_tablet_tool.h
    + [ ] wlr_touch.h
-* IN-PROGRESS util/ [33%]
+* IN-PROGRESS util/ [66%]
   + [X] log.h
   + [ ] region.h
-  + [ ] edges.h
+  + [X] edges.h
