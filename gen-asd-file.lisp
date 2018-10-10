@@ -49,4 +49,5 @@
  '("util/edges")
  '("util/log")
  '("version")
+ '("xcursor" :depends-on ("util/edges"))
  "final")

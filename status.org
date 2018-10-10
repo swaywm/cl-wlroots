@@ -9,11 +9,11 @@ Header files that still need to be ported over/are incomplete. If an
 interface is broken, this is the place to record it. If this is the
 case, use the =BROKEN= header.
 
-* IN-PROGRESS wlr/ [60%]
+* IN-PROGRESS wlr/ [80%]
   + [X] backend.h
   + [X] config.h
   + [X] version.h
-  + [ ] xcursor.h
+  + [X] xcursor.h
   + [ ] xwayland.h
 * IN-PROGRESS backend/ [25%]
   + [ ] drm.h

@@ -2,6 +2,7 @@
   (:use-reexport
    #:wlr/backend
    #:wlr/backend/session
+   #:wlr/backend/wayland
    #:wlr/config
    #:wlr/error
    #:wlr/render/renderer
@@ -14,4 +15,5 @@
    #:wlr/types/output-layout
    #:wlr/types/seat
    #:wlr/util/log
+   #:wlr/xcursor
    #:wlr/wlr-version))

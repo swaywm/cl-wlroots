@@ -54,4 +54,7 @@
 			 (:CFFI-GROVEL-FILE "util/log-grovel" :DEPENDS-ON ("common" "package"))
 			 (:FILE "util/log" :DEPENDS-ON ("util/log-grovel"))
 			 (:CFFI-GROVEL-FILE "version-grovel" :DEPENDS-ON ("common" "package"))
-			 (:FILE "version" :DEPENDS-ON ("version-grovel")) (:FILE "final")))))
+			 (:FILE "version" :DEPENDS-ON ("version-grovel"))
+			 (:CFFI-GROVEL-FILE "xcursor-grovel" :DEPENDS-ON
+					    ("common" "package" "util/edges"))
+			 (:FILE "xcursor" :DEPENDS-ON ("xcursor-grovel")) (:FILE "final")))))

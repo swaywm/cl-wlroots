@@ -22,6 +22,9 @@
 (defpackage #:wlr/util/log
   (:use :cffi :cl))
 
+(defpackage #:wlr/xcursor
+  (:use :cffi :cl :wlr/util/edges))
+
 (defpackage #:wlr/types/box
   (:use :cl :cffi :wayland-server-protocol))
 
