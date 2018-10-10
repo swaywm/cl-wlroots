@@ -1,7 +1,8 @@
 #+TITLE: cl-wlroots
   This system provides cffi bindings for wlroots. Its goal is to just
   provide a low level interface to the library, although abstractions
-  may be added in the future.
+  may be added in the future. See the =status.org= file for which
+  interfaces have been implemented.
 
 ** Installation Instructions
 *** Requirements
@@ -33,6 +34,14 @@
    ~wlr/types/wlr_output.h~ can be found in the ~wlr/types/output~
    package. A notable exception to this is ~wlr/types/input-devices~,
    which contains all of the code for the input devices.
+
+   In addition to defining cffi types for all =wlroots= types, =cl-wlroots=
+   also defines some macros and error conditions. These are:
+   + =with-wlr-accessors= Due to the way that foreign slots are
+     defined in this project, =cffi:with-foreign-slots= cannot be used, so
+     this macro is provided in its place.
+   + =wlr/error:initialization-error=
+
 ** Examples
   Example programs can be found in the =example= directory. Use
   [[https://github.com/roswell/roswell][Roswell]] to run them.
