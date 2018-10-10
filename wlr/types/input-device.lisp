@@ -2,29 +2,29 @@
 
 ;; keyboard.lisp
 (export '(;; all of the grovelled types:
-	 button-state
-	 input-device-type
-	 +led-count+
-	 keyboard-led
-	 +modifier-count+
-	 keyboard-modifier
-	 keyboard-modifiers
-	 keyboard
-	 key-state
-	 event-keyboard-key
-	 pointer
-	 event-pointer-motion
-	 event-pointer-motion-absolute
-	 event-pointer-button
-	 axis-source
-	 axis-orientation
-	 event-pointer-axis
-	 input-device
-	 ;; functions
-	 keyboard-set-keymap
-	 keyboard-set-repeat-info
-	 keyboard-led-update
-	 keyboard-get-modifiers))
+	  button-state
+	  input-device-type
+	  +led-count+
+	  keyboard-led
+	  +modifier-count+
+	  keyboard-modifier
+	  keyboard-modifiers
+	  keyboard
+	  key-state
+	  event-keyboard-key
+	  pointer
+	  event-pointer-motion
+	  event-pointer-motion-absolute
+	  event-pointer-button
+	  axis-source
+	  axis-orientation
+	  event-pointer-axis
+	  input-device
+	  ;; functions
+	  keyboard-set-keymap
+	  keyboard-set-repeat-info
+	  keyboard-led-update
+	  keyboard-get-modifiers))
 
 (defcfun ("wlr_keyboard_set_keymap" keyboard-set-keymap) :void
   (kb (:pointer (:struct keyboard)))

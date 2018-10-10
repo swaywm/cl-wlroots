@@ -90,7 +90,7 @@
 	 (:data "data" :type :pointer))
 
 (cstruct event-pointer-motion "struct wlr_event_pointer_motion"
-	 (:input-device "device" :type (:pointer (:struct input-device)))
+	 (:device "device" :type (:pointer (:struct input-device)))
 	 (:time-msec "time_msec" :type :uint32)
 	 (:delta-x "delta_x" :type :double)
 	 (:delta-y "delta_y" :type :double))

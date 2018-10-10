@@ -16,7 +16,7 @@
     (declare (ignore keywords))
     (when (or rest-name key-present other-keys aux key-present)
       (error "&rest, &key &allow-other-keys, and &aux are not allowed in def-initialization functions"))
-    (let ((flattened-args required-args))
+    (let ((flattened-args (reverse required-args)))
       (dolist (arg optional-args)
 	(push (first arg) flattened-args)
 	(when (null (second arg))

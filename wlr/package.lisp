@@ -5,6 +5,9 @@
 (defpackage #:wlr/error
   (:use :cl))
 
+(defpackage #:wlr/macros
+  (:use :cl))
+
 (defpackage #:wlr/wlr-version
   (:use :cl :alexandria))
 
@@ -72,3 +75,7 @@
   (:use :cffi :cl :wayland-server-core #:wlr/types/input-devices
 	#:wlr/types/box #:wlr/types/output-layout #:wlr/types/output
 	#:wlr/base))
+
+(defpackage #:wlr/types/xcursor-manager
+  (:use :cl :cffi :wlr/base :wayland-server-core #:wlr/types/cursor
+	#:wlr/xcursor))
