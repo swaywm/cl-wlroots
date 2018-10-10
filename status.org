@@ -42,7 +42,7 @@ case, use the =BROKEN= header.
   + [ ] wlr_renderer.h
     + In progress
   + [ ] wlr_texture.h
-* IN-PROGRESS types/ [3%]
+* IN-PROGRESS types/ [7%]
   + [X] wlr_box.h
   + [ ] wlr_buffer.h
   + [ ] wlr_compositor.h
@@ -74,7 +74,7 @@ case, use the =BROKEN= header.
   + [ ] wlr_surface.h
   + [ ] wlr_virtual_keyboard.h
   + [ ] wlr_wl_shell.h
-  + [ ] wlr_xcursor_manager.h
+  + [X] wlr_xcursor_manager.h
   + [ ] wlr_xdg_decoration_v1.h
   + [ ] wlr_xdg_shell.h
   + [ ] wlr_xdg_shell_v6

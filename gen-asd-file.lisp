@@ -46,6 +46,7 @@
  '("types/output-damage" :depends-on ("types/output"))
  '("types/output-layout" :depends-on ("types/output"))
  '("types/seat" :depends-on ("types/data-device"))
+ '("types/xcursor-manager" :depends-on ("types/cursor" "xcursor"))
  '("util/edges")
  '("util/log")
  '("version")

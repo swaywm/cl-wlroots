@@ -14,6 +14,7 @@
    #:wlr/types/output-damage
    #:wlr/types/output-layout
    #:wlr/types/seat
+   #:wlr/types/xcursor-manager
    #:wlr/util/log
    #:wlr/xcursor
    #:wlr/wlr-version))
