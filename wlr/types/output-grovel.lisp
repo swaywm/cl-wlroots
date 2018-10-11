@@ -3,13 +3,12 @@
 (cc-flags "-DWLR_USE_UNSTABLE")
 (include "wlr/types/wlr_output.h")
 
-(cstruct output_mode "struct wlr_output_mode"
+(cstruct output-mode "struct wlr_output_mode"
 	 (:flags "flags" :type :uint32)
 	 (:width "width" :type :int32)
 	 (:height "height" :type :int32)
 	 (:refresh "refresh" :type :int32)
-	 ;;; not including the link:
-	 )
+	 (:link "link" :type (:struct wl_list)))
 
 (cstruct output "struct wlr_output")
 
@@ -39,7 +38,7 @@
 	 (:pys-height "phys_height" :type :int32)
 	 (:modes "modes" :type (:struct wayland-server-core:wl_list))
 	 (:current-mode "current_mode"
-			:type (:pointer (:struct output_mode)))
+			:type (:pointer (:struct output-mode)))
 	 (:width "width" :type :int32)
 	 (:height "height" :type :int32)
 	 (:refresh "refresh" :type :int32)

@@ -1,6 +1,6 @@
 (in-package #:wlr/types/output)
 
-(export '(output_mode
+(export '(output-mode
 	  output
 	  output-cursor
 	  output-enable
@@ -27,4 +27,4 @@
 
 (defcfun ("wlr_output_set_mode" output-set-mode) :bool
   (output (:pointer (:struct output)))
-  (mode (:pointer (:struct output_mode))))
+  (mode (:pointer (:struct output-mode))))
