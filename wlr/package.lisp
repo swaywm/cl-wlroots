@@ -32,7 +32,8 @@
   (:use :cl :cffi :wayland-server-protocol))
 
 (defpackage #:wlr/render/renderer
-  (:use :cffi :cl :wayland-server-core :egl :wayland-server-core))
+  (:use :cffi :cl :wayland-server-core :egl :wayland-server-core
+	#:wlr/types/box))
 
 (defpackage #:wlr/backend/session
   (:use :cl :cffi :wayland-server-core :wlr/common
@@ -48,7 +49,7 @@
   (:use :cffi :cl :wayland-server-core #:wlr/backend))
 
 (defpackage #:wlr/types/output-layout
-  (:use :cffi :cl :wayland-server-core #:wlr/types/output))
+  (:use :cffi :cl :wayland-server-core #:wlr/types/output #:wlr/types/box))
 
 (defpackage #:wlr/types/data-device
   (:use :cffi :cl :wayland-server-core

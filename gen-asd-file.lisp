@@ -35,7 +35,7 @@
  ;; this depends on a lot of stuff, not all implemented:
  '("backend" :depends-on ("render/renderer" "backend/session"))
  '("backend/session")
- '("render/renderer")
+ '("render/renderer" :depends-on ("types/box"))
  '("backend/wayland" :has-grovel nil :depends-on ("types/output" "types/input-device"))
  '("types/box")
  '("types/cursor" :depends-on ("types/input-device" "types/box"
