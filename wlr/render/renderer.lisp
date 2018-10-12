@@ -38,7 +38,7 @@
 modified by drawing functions. Providing a NULL `box` disables the scissor
 box."
   (renderer (:pointer (:struct renderer)))
-  (box (:pointer (:struct box))))
+  (box box))
 
 ;; These funtions need to have wlr_texture to be ported over.
 #|
@@ -61,7 +61,7 @@ box."
 (defcfun ("wlr_render_rect" render-rectangle) :void
   "Renders a solid rectangle in the specified color."
   (r (:pointer (:struct renderer)))
-  (box (:pointer (:struct box)))
+  (box box)
   (color :pointer)
   (projection :pointer))
 

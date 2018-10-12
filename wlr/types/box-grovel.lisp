@@ -4,7 +4,7 @@
 (include "wlr/types/wlr_box.h")
 
 (cstruct box "struct wlr_box"
-	 (:x "x" :type :int)
-	 (:y "y" :type :int)
-	 (:width "width" :type :int)
-	 (:height "height" :type :int))
+	 (x "x" :type :int)
+	 (y "y" :type :int)
+	 (width "width" :type :int)
+	 (height "height" :type :int))

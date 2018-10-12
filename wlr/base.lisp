@@ -1,7 +1,8 @@
 (in-package #:wlr/base)
 
 (export '(initialization-error
-	  def-initialization))
+	  def-initialization
+	  with-return-pointer))
 
 (define-foreign-library libwlroots
   (:unix (:or "libwlroots.so.0.0.1" "libwlroots.so.0" "libwlroots"))
@@ -38,3 +39,10 @@ must specify a default value for these arguments. Other special argument types a
 	 (when (cffi:null-pointer-p new-thing)
 	   (error 'initialization-error :wlr-type ,type))
 	 new-thing))))
+
+(defmacro with-return-pointer ((dest-var type) &body body)
+  "Allocates DEST-VAR as a foreign pointer. Once BODY has been executed,
+the contents of DEST-VAR is translated as per TYPE and returned."
+  `(with-foreign-object (,dest-var :pointer)
+     ,@body
+     (convert-from-foreign ,dest-var ,type)))

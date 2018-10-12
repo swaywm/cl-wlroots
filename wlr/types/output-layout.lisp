@@ -50,7 +50,7 @@
   (layout (:pointer (:struct output-layout)))
   (output (:pointer (:struct output))))
 
-(defcfun ("wlr_output_layout_get_box" output-layout-get-box) (:pointer (:struct box))
+(defcfun ("wlr_output_layout_get_box" output-layout-get-box) box
   "Get the box of the layout for the given reference output in layout
 coordinates. If `reference` is NULL, the box will be for the extents of the
 entire layout."

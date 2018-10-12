@@ -3,13 +3,70 @@
 (export '(box
 	  box-closest-point
 	  box-intersection
-	  box-contains-point
+	  box-contains-point-p
 	  box-empty-p
 	  box-transform
 	  box-rotated-bounds))
 
-(defcfun ("wlr_box_closest_point" internal-box-closest-point) :void
-  (box (:pointer (:struct box)))
+(eval-when (:compile-toplevel :load-toplevel)
+  (cffi:define-foreign-type box ()
+    ((x :initarg :x
+	:accessor box-x
+	:type integer)
+     (y :initarg :y
+	:accessor box-y
+	:type integer)
+     (width :initarg :width
+	    :accessor box-width
+	    :type integer)
+     (height :initarg :height
+	     :accessor box-height
+	     :type integer))
+    (:actual-type :pointer)
+    (:simple-parser box))
+
+  (defmethod translate-to-foreign (box (type box))
+    (let ((new-box (foreign-alloc '(:struct box))))
+      (with-foreign-slots ((x y width height) new-box (:struct box))
+	(setf x (box-x box)
+	      y (box-y box)
+	      width (box-width box)
+	      height (box-height box)))
+      new-box))
+
+  (defmethod free-translated-object (pointer (type box) param)
+    (declare (ignore param))
+    (foreign-free pointer))
+
+  (defmethod expand-from-foreign (form (type box))
+    `(with-foreign-slots ((x y width height) ,form (:struct box))
+       (make-instance 'box
+		      :x x
+		      :y y
+		      :width width
+		      :height height)))
+
+  (defmethod expand-to-foreign-dyn (value var body (type box))
+    `(with-foreign-object (,var :pointer)
+       ;; every var defined in this with-foreign-slots form won't be seen by body:
+       (with-foreign-slots ((x y width height) ,var (:struct box))
+	 (setf x (slot-value ,value 'x)
+	       y (slot-value ,value 'y)
+	       width (slot-value ,value 'width)
+	       height (slot-value ,value 'height)))
+       ,@body)))
+
+(defmethod print-object ((box box) stream)
+  (print-unreadable-object (box stream :type t :identity t)
+    (with-accessors ((x box-x)
+		     (y box-y)
+		     (width box-width)
+		     (height box-height))
+	box
+      (format stream "(~S ~S) w:~S h:~S" x y width height))))
+
+(defcfun "wlr_box_closest_point" :void
+  (box box)
   (x :double)
   (y :double)
   (dest-x (:pointer :double))
@@ -19,32 +76,49 @@
   "Returns the closest points as (values x y)"
   (cffi:with-foreign-objects ((dest-x :double)
 			      (dest-y :double))
-    (internal-box-closest-point box x y dest-y dest-y)
+    (wlr-box-closest-point box x y dest-x dest-y)
     (values (the double-float (mem-ref dest-x :double))
 	    (the double-float (mem-ref dest-y :double)))))
 
-(defcfun ("wlr_box_intersection" box-intersection) :bool
-  (box-a (:pointer (:struct box)))
-  (box-b (:pointer (:struct box)))
-  (dest  (:pointer (:struct box))))
+(defcfun "wlr_box_intersection" :bool
+  (box-a box)
+  (box-b box)
+  (dest (:pointer (:struct box))))
 
-(defcfun ("wlr_box_contains_point" box-contains-point) :bool
-  (box (:pointer (:struct box)))
-  (x :double)
-  (y :double))
+(defun box-intersection (box-a box-b)
+  "Returns the box that is the intersection of the given boxes"
+  (with-return-pointer (dest 'box)
+    (wlr-box-intersection box-a box-b dest)))
 
-(defcfun ("wlr_box_empty" box-empty-p) :bool
-  (box (:pointer (:struct box))))
+(defun box-contains-point-p (box x y)
+  (and (not (box-empty-p box))
+       (and (>= x (box-x box))
+	    (< x (box-x box))
+	    (>= y (box-y box))
+	    (< y (box-y box)))))
 
-(defcfun ("wlr_box_transform" box-transform) :void
-  "Transforms a box inside a 'width' by 'height' box."
+(defun box-empty-p (box)
+  (declare (type box box))
+  (or (<= (box-width box) 0) (<= (box-height 0))))
+
+(defcfun "wlr_box_transform" :void
+  (box box)
   (transform wl-output-transform)
   (width :int)
   (height :int)
   (dest (:pointer (:struct box))))
 
-(defcfun ("wlr_box_rotated_bounds" box-rotated-bounds) :void
-  "Creates the smallest box that contains the box rotated about its center"
-  (box (:pointer (:struct box)))
+(defun box-transform (box transform width height)
+  "Transforms a box inside a 'width' by 'height' box. Returns a new box."
+  (with-return-pointer (dest 'box)
+    (wlr-box-transform box transform width height dest)))
+
+(defcfun "wlr_box_rotated_bounds" :void
+  (box box)
   (rotation :float)
   (dest (:pointer (:struct box))))
+
+(defun box-rotated-bounds (box rotation)
+  "Creates the smallest box that contains the box rotated about its center"
+  (with-return-pointer (dest 'box)
+    (wlr-box-rotated-bounds box rotation dest)))

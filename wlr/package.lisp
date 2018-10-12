@@ -29,7 +29,8 @@
   (:use :cffi :cl :wlr/util/edges))
 
 (defpackage #:wlr/types/box
-  (:use :cl :cffi :wayland-server-protocol))
+  (:use :cl :cffi :wayland-server-protocol
+	#:wlr/base))
 
 (defpackage #:wlr/render/renderer
   (:use :cffi :cl :wayland-server-core :egl :wayland-server-core
