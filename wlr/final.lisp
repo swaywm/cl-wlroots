@@ -10,6 +10,7 @@
    #:wlr/types/cursor
    #:wlr/types/data-device
    #:wlr/types/input-devices
+   #:wlr/types/matrix
    #:wlr/types/output
    #:wlr/types/output-damage
    #:wlr/types/output-layout

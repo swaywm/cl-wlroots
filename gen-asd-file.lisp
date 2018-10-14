@@ -43,6 +43,7 @@
  '("types/data-device")
  '("types/input-device")
  '("types/output" :depends-on ("backend"))
+ '("types/matrix" :depends-on ("types/box") :has-grovel nil)
  '("types/output-damage" :depends-on ("types/output"))
  '("types/output-layout" :depends-on ("types/output"))
  '("types/seat" :depends-on ("types/data-device"))

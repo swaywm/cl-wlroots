@@ -11,7 +11,7 @@
   :components
   ((:module wlr
 	    ;; use the functions in gen-asd-file.lisp to generate the file list:
-	    :components ((:FILE "package") (:FILE "error") (:FILE "macros") (:FILE "base")
+	    :components ((:FILE "package") (:FILE "error") (:FILE "base")
 			 (:CFFI-GROVEL-FILE "common-grovel" :DEPENDS-ON ("package"))
 			 (:FILE "common" :DEPENDS-ON ("common-grovel"))
 			 (:FILE "config" :DEPENDS-ON ("common" "package"))
@@ -21,7 +21,8 @@
 			 (:FILE "backend" :DEPENDS-ON ("backend-grovel"))
 			 (:CFFI-GROVEL-FILE "backend/session-grovel" :DEPENDS-ON ("common" "package"))
 			 (:FILE "backend/session" :DEPENDS-ON ("backend/session-grovel"))
-			 (:CFFI-GROVEL-FILE "render/renderer-grovel" :DEPENDS-ON ("common" "package" "types/box"))
+			 (:CFFI-GROVEL-FILE "render/renderer-grovel" :DEPENDS-ON
+					    ("common" "package" "types/box"))
 			 (:FILE "render/renderer" :DEPENDS-ON ("render/renderer-grovel"))
 			 (:FILE "backend/wayland" :DEPENDS-ON
 				("common" "package" "types/output" "types/input-device"))
@@ -40,6 +41,7 @@
 			 (:CFFI-GROVEL-FILE "types/output-grovel" :DEPENDS-ON
 					    ("common" "package" "backend"))
 			 (:FILE "types/output" :DEPENDS-ON ("types/output-grovel"))
+			 (:FILE "types/matrix" :DEPENDS-ON ("common" "package" "types/box"))
 			 (:CFFI-GROVEL-FILE "types/output-damage-grovel" :DEPENDS-ON
 					    ("common" "package" "types/output"))
 			 (:FILE "types/output-damage" :DEPENDS-ON ("types/output-damage-grovel"))
@@ -60,4 +62,5 @@
 			 (:FILE "version" :DEPENDS-ON ("version-grovel"))
 			 (:CFFI-GROVEL-FILE "xcursor-grovel" :DEPENDS-ON
 					    ("common" "package" "util/edges"))
-			 (:FILE "xcursor" :DEPENDS-ON ("xcursor-grovel")) (:FILE "final")))))
+			 (:FILE "xcursor" :DEPENDS-ON ("xcursor-grovel")) (:FILE "final")
+			 (:FILE "macros")))))

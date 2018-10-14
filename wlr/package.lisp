@@ -32,6 +32,9 @@
   (:use :cl :cffi :wayland-server-protocol
 	#:wlr/base))
 
+(defpackage #:wlr/types/matrix
+  (:use :cl :cffi :wayland-server-protocol #:wlr/types/box))
+
 (defpackage #:wlr/render/renderer
   (:use :cffi :cl :wayland-server-core :egl :wayland-server-core
 	#:wlr/types/box))

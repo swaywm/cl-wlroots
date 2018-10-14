@@ -1,6 +1,10 @@
 (in-package #:wlr/types/box)
 
 (export '(box
+	  box-x
+	  box-y
+	  box-width
+	  box-height
 	  box-closest-point
 	  box-intersection
 	  box-contains-point-p
