@@ -53,7 +53,7 @@
   (:use :cffi :cl :wayland-server-core #:wlr/backend))
 
 (defpackage #:wlr/types/output-layout
-  (:use :cffi :cl :wayland-server-core #:wlr/types/output #:wlr/types/box))
+  (:use :cffi :cl :wayland-server-core #:wlr/types/output #:wlr/types/box #:wlr/base))
 
 (defpackage #:wlr/types/data-device
   (:use :cffi :cl :wayland-server-core

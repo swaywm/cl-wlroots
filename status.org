@@ -42,7 +42,7 @@ case, use the =BROKEN= header.
   + [ ] wlr_renderer.h
     + In progress
   + [ ] wlr_texture.h
-* IN-PROGRESS types/ [7%]
+* IN-PROGRESS types/ [10%]
   + [X] wlr_box.h
   + [ ] wlr_buffer.h
   + [ ] wlr_compositor.h
@@ -57,7 +57,7 @@ case, use the =BROKEN= header.
   + [ ] wlr_linux_dmabuf_v1.h
   + +wlr_list.h+?
     + may or may not be needed
-  + [ ] wlr_matrix.h
+  + [X] wlr_matrix.h
   + [ ] wlr_output.h
     + in progress
   + [ ] wlr_output_damage.h

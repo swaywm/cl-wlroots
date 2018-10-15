@@ -2,7 +2,8 @@
 
 (export '(initialization-error
 	  def-initialization
-	  with-return-pointer))
+	  with-return-pointer
+	  define-accessor))
 
 (define-foreign-library libwlroots
   (:unix (:or "libwlroots.so.0.0.1" "libwlroots.so.0" "libwlroots"))
@@ -46,3 +47,12 @@ the contents of DEST-VAR is translated as per TYPE and returned."
   `(with-foreign-object (,dest-var :pointer)
      ,@body
      (convert-from-foreign ,dest-var ,type)))
+
+(defmacro define-accessor (accessor-name (var-name object-type) &body value-form)
+  "Define a getter and setter function acessor-name. value-form
+should be a setf-able place."
+  `(progn
+     (defmethod ,accessor-name ((,var-name ,object-type))
+       ,@value-form)
+     (defmethod (setf ,accessor-name) ((,var-name ,object-type) new-value)
+       (setf ,@value-form new-value))))
