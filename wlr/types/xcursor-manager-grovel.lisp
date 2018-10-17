@@ -1,5 +1,7 @@
 (in-package #:wlr/types/xcursor-manager)
 (include "wlr/types/wlr_xcursor_manager.h")
+(pkg-config-cflags "wlroots")
+(cc-flags "-DWLR_USE_UNSTABLE")
 
 ;; An XCursor theme at a particular scale factor of the base size.
 (cstruct xcursor-manager-theme "struct wlr_xcursor_manager_theme"

@@ -84,3 +84,7 @@
 (defpackage #:wlr/types/xcursor-manager
   (:use :cl :cffi :wlr/base :wayland-server-core #:wlr/types/cursor
 	#:wlr/xcursor))
+
+(defpackage #:wlr/types/xdg-shell
+  (:use :cl :cffi #:wlr/types/box #:wlr/types/seat
+	#:wayland-server-core))

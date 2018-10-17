@@ -77,6 +77,7 @@ case, use the =BROKEN= header.
   + [X] wlr_xcursor_manager.h
   + [ ] wlr_xdg_decoration_v1.h
   + [ ] wlr_xdg_shell.h
+    - In progress
   + [ ] wlr_xdg_shell_v6
 ** Input devices [42%]
    + [X] wlr_cursor
