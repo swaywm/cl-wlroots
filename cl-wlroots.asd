@@ -5,11 +5,22 @@
   :author "Stuart Dilts stuart dot dilts at gmail dot com"
   :license  "MIT"
   :version "0.0.1"
-  :defsystem-depends-on (#:cffi-grovel)
+  :defsystem-depends-on (#:cffi-grovel #:wayland-scanner)
   :depends-on (#:cffi #:cffi-grovel #:cl-wayland #:cl-egl #:xkbcommon #:alexandria)
-  :serial t
   :components
-  ((:module wlr
+  ((:module wayland-headers
+	    :components
+	    ((:c-wl-scanner "xdg-shell-protocol.h" :protocol-type :server
+			    :protocol-name "xdg-shell")))
+   (:module wayland-protocols
+	    :components
+	    ((:wl-scanner "xdg-shell-protocol" :protocol-type :server
+			  :protocol-name "xdg-shell")
+	     (:wl-scanner "wayland-sever-protocol" :protocol-type :server
+			  :protocol-name "wayland"
+			  :protocol-path #p"/usr/share/wayland/")))
+   (:module wlr
+	    :depends-on (wayland-headers wayland-protocols)
 	    ;; use the functions in gen-asd-file.lisp to generate the file list:
 	    :components ((:FILE "package") (:FILE "error") (:FILE "base")
 			 (:CFFI-GROVEL-FILE "common-grovel" :DEPENDS-ON ("package"))
