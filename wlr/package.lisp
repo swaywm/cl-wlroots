@@ -39,6 +39,10 @@
   (:use :cffi :cl :wayland-server-core :egl :wayland-server-core
 	#:wlr/types/box))
 
+(defpackage #:wlr/types/compositor
+  (:use :cffi :cl :wayland-server-core #:wlr/render/renderer
+	#:wlr/base))
+
 (defpackage #:wlr/backend/session
   (:use :cl :cffi :wayland-server-core :wlr/common
 	#:wlr/base))
@@ -87,4 +91,4 @@
 
 (defpackage #:wlr/types/xdg-shell
   (:use :cl :cffi #:wlr/types/box #:wlr/types/seat
-	#:wayland-server-core))
+	#:wayland-server-core #:wlr/base))

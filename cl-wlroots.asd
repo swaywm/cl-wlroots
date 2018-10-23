@@ -41,6 +41,9 @@
 		    ("common" "package" "types/output" "types/input-device"))
 	     (:CFFI-GROVEL-FILE "types/box-grovel" :DEPENDS-ON ("common" "package"))
 	     (:FILE "types/box" :DEPENDS-ON ("types/box-grovel"))
+	     (:CFFI-GROVEL-FILE "types/compositor-grovel" :DEPENDS-ON
+				("common" "package" "render/renderer"))
+	     (:FILE "types/compositor" :DEPENDS-ON ("types/compositor-grovel"))
 	     (:CFFI-GROVEL-FILE "types/cursor-grovel" :DEPENDS-ON
 				("common" "package" "types/input-device" "types/box" "types/output-layout"
 					  "types/output"))

@@ -7,6 +7,7 @@
    #:wlr/error
    #:wlr/render/renderer
    #:wlr/types/box
+   #:wlr/types/compositor
    #:wlr/types/cursor
    #:wlr/types/data-device
    #:wlr/types/input-devices
@@ -16,6 +17,7 @@
    #:wlr/types/output-layout
    #:wlr/types/seat
    #:wlr/types/xcursor-manager
+   #:wlr/types/xdg-shell
    #:wlr/util/log
    #:wlr/xcursor
    #:wlr/wlr-version))

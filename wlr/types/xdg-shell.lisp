@@ -1,7 +1,32 @@
 (in-package #:wlr/types/xdg-shell)
 
-(cffi:defcfun ("wlr_xdg_shell_create" xdg-shell-create) (:pointer (:struct xdg-shell))
+(export '(xdg-client
+	  xdg-popup
+	  xdg-popup-get-anchor-point
+	  xdg-popup-get-toplevel-coords
+	  xdg-popup-grab
+	  xdg-popup-unconstrain-from-box
+	  xdg-positioner
+	  xdg-positioner-get-geometry
+	  xdg-shell
+	  xdg-shell-create
+	  xdg-shell-destroy
+	  xdg-surface
+	  xdg-surface-configure
+	  xdg-surface-configure
+	  xdg-surface-for-each-popup
+	  xdg-surface-for-each-surface
+	  xdg-surface-from-popup-resource
+	  xdg-surface-from-resource
+	  xdg-surface-from-toplevel-resource
+	  xdg-surface-get-geometry
+	  xdg-surface-ping))
+
+(cffi:defcfun "wlr_xdg_shell_create" (:pointer (:struct xdg-shell))
   (display :pointer))
+
+(def-initialization xdg-shell-create (display)
+  'xdg-shell wlr-xdg-shell-create)
 
 (cffi:defcfun ("wlr_xdg_shell_destroy" xdg-shell-destroy) :void
   (xdg-shell (:pointer (:struct xdg-shell))))
