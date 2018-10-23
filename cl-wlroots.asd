@@ -6,7 +6,7 @@
   :license  "MIT"
   :version "0.0.1"
   :defsystem-depends-on (#:cffi-grovel #:wayland-scanner)
-  :depends-on (#:cffi #:cffi-grovel #:cl-wayland #:cl-egl #:xkbcommon #:alexandria)
+  :depends-on (#:cffi #:cffi-libffi #:cffi-grovel #:cl-wayland #:cl-egl #:xkbcommon #:alexandria)
   :components
   ((:module wayland-headers
 	    :components
