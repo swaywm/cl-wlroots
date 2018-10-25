@@ -4,6 +4,7 @@
    #:wlr/backend/session
    #:wlr/backend/wayland
    #:wlr/config
+   #:wlr/common-c-types
    #:wlr/error
    #:wlr/render/renderer
    #:wlr/types/box
