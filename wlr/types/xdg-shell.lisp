@@ -43,7 +43,7 @@
     (:pointer (:struct xdg-shell))
   (resource :pointer))
 
-(cffi:defcfun ("wlr_xdg_positioner_get_geometry" xdg-positioner-get-geometry) box
+(cffi:defcfun ("wlr_xdg_positioner_get_geometry" xdg-positioner-get-geometry) (:struct box)
   (positioner (:pointer (:struct xdg-positioner))))
 
 (cffi:defcfun ("wlr_xdg_surface_ping" xdg-surface-ping) :void

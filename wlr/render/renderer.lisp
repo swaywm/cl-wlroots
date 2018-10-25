@@ -6,6 +6,8 @@
 	  renderer-end
 	  renderer-clear
 	  renderer-scissor
+	  render-texture
+	  render-texture-with-matrix
 	  render-quad-with-matrix
 	  render-rectangle
 	  renderer-init-wl-display))
@@ -41,10 +43,11 @@ box."
   (box box))
 
 ;; These funtions need to have wlr_texture to be ported over.
-#|
+
 (defcfun ("wlr_render_texture" render-texture) :bool
   (r (:pointer (:struct renderer)))
-  (texture (:pointer (:struct texture)))
+  ;; (texture (:pointer (:struct texture)))
+  (texture :pointer)
   (projection :pointer)
   (x :int)
   (y :int)
@@ -53,10 +56,10 @@ box."
 (defcfun ("wlr_render_texture_with_matrix"  render-texture-with-matrix) :bool
   "Renders the requested texture using the provided matrix."
    (r (:pointer (:struct renderer)))
-   (texture (:pointer (:struct texture)))
+   ;; (texture (:pointer (:struct texture)))
+   (texture :pointer)
    (matrix :pointer)
    (aplha :float))
-|#
 
 (defcfun ("wlr_render_rect" render-rectangle) :void
   "Renders a solid rectangle in the specified color."

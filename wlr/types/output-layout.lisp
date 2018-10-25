@@ -9,6 +9,7 @@
 	  get-width
 	  get-height
 	  output-layout-create
+	  output-layout-coords
 	  output-layout-destroy
 	  output-layout-add-auto
 	  output-layout-remove
@@ -38,14 +39,15 @@
     (output-layout-wlr-output object))
 
   (defmethod translate-from-foreign (object (type layout-output))
-    (make-instance 'layout-output :wlr-layout-output object)))
+    (make-instance 'layout-output :wlr-layout-output object))
 
-(defmethod print-object ((object layout-output) stream)
-  (print-unreadable-object (object stream :type t)
-    (with-accessors ((x get-x)
-		     (y get-y))
-	object
-      (format stream "(~A ~A)" x y))))
+  ;; (defmethod print-object ((object layout-output) stream)
+  ;; (print-unreadable-object (object stream :type t)
+  ;;   (with-accessors ((x get-x)
+  ;; 		     (y get-y))
+  ;; 	object
+  ;;     (format stream "(~A ~A)" x y))))
+  )
 
 (defcfun "wlr_output_layout_create" (:pointer (:struct output-layout)))
 
@@ -83,6 +85,17 @@
 (defcfun ("wlr_output_layout_remove" output-layout-remove) :void
   (layout (:pointer (:struct output-layout)))
   (output (:pointer (:struct output))))
+
+(defcfun "wlr_output_layout_output_coords" :void
+  (layout (:pointer (:struct output-layout)))
+   (reference (:pointer (:struct output)))
+   (lx (:pointer :double))
+   (ly (:pointer :double)))
+
+(defun output-layout-coords (layout reference)
+  (with-foreign-objects ((lx :double) (ly :double))
+    (wlr-output-layout-output-coords layout reference lx ly)
+    (values (mem-ref lx :double) (mem-ref ly :double))))
 
 (defcfun ("wlr_output_layout_get_box" output-layout-get-box) box
   "Get the box of the layout for the given reference output in layout

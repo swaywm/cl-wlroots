@@ -51,6 +51,7 @@
 	 (:needs-swap "needs_swap" :type :bool)
 	 ;; (:damage "damage" :type pixman:region32_t)
 	 (:frame-pending "frame_pending" :type :bool)
-	 (:transform-matrix "transform_matrix" :type :float)
+	 ;; array of floats:
+	 (:transform-matrix "transform_matrix" :type :pointer)
 	 (:event-frame "events.frame" :type (:struct wl_signal))
 	 (:event-destroy "events.destroy" :type (:struct wl_signal)))

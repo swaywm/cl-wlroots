@@ -11,7 +11,7 @@
 (defcfun ("wlr_compositor_destroy" compositor-destroy) :void
   (compositor :pointer))
 
-(defcfun "wlr_compositor_create" :void
+(defcfun "wlr_compositor_create" :pointer
   (display :pointer)
   (renderer (:pointer (:struct renderer))))
 
