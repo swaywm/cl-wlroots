@@ -17,6 +17,7 @@
    #:wlr/types/output-damage
    #:wlr/types/output-layout
    #:wlr/types/seat
+   #:wlr/types/surface
    #:wlr/types/xcursor-manager
    #:wlr/types/xdg-shell
    #:wlr/util/log

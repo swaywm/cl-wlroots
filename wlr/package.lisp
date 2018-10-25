@@ -56,6 +56,10 @@
 (defpackage #:wlr/types/output
   (:use :cffi :cl :wayland-server-core #:wlr/backend))
 
+(defpackage #:wlr/types/surface
+  (:use :cffi :cl :wayland-server-core #:wlr/types/box #:wlr/types/output
+	#:wayland-protocol))
+
 (defpackage #:wlr/types/output-layout
   (:use :cffi :cl :wayland-server-core #:wlr/types/output #:wlr/types/box #:wlr/base))
 

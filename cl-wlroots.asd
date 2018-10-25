@@ -69,6 +69,8 @@
 	     (:FILE "types/seat" :DEPENDS-ON ("types/seat-grovel"))
 	     (:CFFI-GROVEL-FILE "types/xcursor-manager-grovel" :DEPENDS-ON
 				("common-c-types" "package" "types/cursor" "xcursor"))
+	     (:CFFI-GROVEL-FILE "types/surface-grovel" :DEPENDS-ON ("types/output" "types/box"))
+	     (:FILE "types/surface" :DEPENDS-ON ("types/surface-grovel"))
 	     (:FILE "types/xcursor-manager" :DEPENDS-ON
 		    ("types/xcursor-manager-grovel"))
 	     (:CFFI-GROVEL-FILE "types/xdg-shell-grovel" :DEPENDS-ON
