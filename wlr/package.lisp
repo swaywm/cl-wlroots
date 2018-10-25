@@ -16,7 +16,7 @@
 (defpackage #:wlr/base
   (:use :cl :cffi #:wlr/error))
 
-(defpackage #:wlr/common
+(defpackage #:wlr/common-c-types
   (:use :cffi :cl))
 
 (defpackage #:wlr/util/edges
@@ -44,7 +44,7 @@
 	#:wlr/base))
 
 (defpackage #:wlr/backend/session
-  (:use :cl :cffi :wayland-server-core :wlr/common
+  (:use :cl :cffi :wayland-server-core #:wlr/common-c-types
 	#:wlr/base))
 
 (defpackage #:wlr/backend
@@ -72,7 +72,7 @@
 	#:wlr/types/output))
 
 (defpackage #:wlr/types/input-devices
-  (:use :cffi :cl :wayland-server-core #:wlr/common))
+  (:use :cffi :cl :wayland-server-core #:wlr/common-c-types))
 
 (defpackage #:wlr/backend/wayland
   (:use :cl :cffi :wlr/base :wlr/backend
@@ -82,7 +82,7 @@
 
 (defpackage #:wlr/types/seat
   (:use :cffi :cl :wayland-server-core #:wlr/types/data-device
-	#:wlr/types/input-devices #:wlr/common #:wlr/base))
+	#:wlr/types/input-devices #:wlr/common-c-types #:wlr/base))
 
 (defpackage #:wlr/types/cursor
   (:use :cffi :cl :wayland-server-core #:wlr/types/input-devices
