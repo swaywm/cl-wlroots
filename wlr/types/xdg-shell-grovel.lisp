@@ -34,7 +34,18 @@
        ((:toplevel "WLR_XDG_SURFACE_ROLE_TOPLEVEL"))
        ((:popup "WLR_XDG_SURFACE_ROLE_POPUP")))
 
-(cstruct xdg-toplevel "struct wlr_xdg_toplevel")
+(cstruct xdg-toplevel "struct wlr_xdg_toplevel"
+	 (:title "title" :type string)
+	 (:app-id "app_id" :type string)
+	 (:event-request-maximize "request_maximize" :type wl_signal)
+	 (:event-request-fullscreen "request_fullscreen" :type wl_signal)
+	 (:event-request-minimize "request_minimize" :type wl_signal)
+	 (:event-request-request-move "request_move" :type wl_signal)
+	 (:event-request-resize "request_resize" :type wl_signal)
+	 (:event-request-show-window-menu "request_show_window_menu" :type wl_signal)
+	 (:event-set-parent "set_parent" :type wl_signal)
+	 (:event-set-title "set_title" :type wl_signal)
+	 (:event-set-app-id "set_app_id" :type wl_signal))
 
 (cstruct xdg-surface-configure "struct wlr_xdg_surface_configure")
 
