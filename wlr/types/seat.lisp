@@ -9,7 +9,8 @@
 	  seat-get-keyboard
 	  seat-notify-key
 	  seat-keyboard-notify-enter
-	  seat-keyboard-notify-modifiers))
+	  seat-keyboard-notify-modifiers
+	  seat-keyboard-state))
 
 (defcfun "wlr_seat_create" (:pointer (:struct seat))
   (display :pointer)
