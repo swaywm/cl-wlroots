@@ -18,9 +18,16 @@
 	  xdg-surface-for-each-surface
 	  xdg-surface-from-popup-resource
 	  xdg-surface-from-resource
+	  xdg-surface-from-surface
 	  xdg-surface-from-toplevel-resource
 	  xdg-surface-get-geometry
-	  xdg-surface-ping))
+	  xdg-surface-ping
+	  xdg-toplevel
+	  xdg-toplevel-set-activated
+	  xdg-toplevel-set-fullscreen
+	  xdg-toplevel-set-maximized
+	  xdg-toplevel-set-resizing
+	  xdg-toplevel-set-size))
 
 (cffi:defcfun "wlr_xdg_shell_create" (:pointer (:struct xdg-shell))
   (display :pointer))
