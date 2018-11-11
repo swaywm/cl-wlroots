@@ -64,23 +64,23 @@
 
 (cffi:defcfun ("wlr_xdg_toplevel_set_activated" xdg-toplevel-set-activated) :pointer
   (surface (:pointer (:struct xdg-surface)))
-  (activated :pointer))
+  (activated :bool))
 
 (cffi:defcfun ("wlr_xdg_toplevel_set_maximized" xdg-toplevel-set-maximized) :pointer
   (surface (:pointer (:struct xdg-surface)))
-  (maximized :pointer))
+  (maximized :bool))
 
 (cffi:defcfun ("wlr_xdg_toplevel_set_fullscreen" xdg-toplevel-set-fullscreen) :pointer
   (surface (:pointer (:struct xdg-surface)))
-  (fullscreen :pointer))
+  (fullscreen :bool))
 
 (cffi:defcfun ("wlr_xdg_toplevel_set_resizing" xdg-toplevel-set-resizing) :pointer
   (surface (:pointer (:struct xdg-surface)))
-  (resizing :pointer))
+  (resizing :bool))
 
 (cffi:defcfun ("wlr_xdg_toplevel_set_tiled" xdg-toplevel-set-tiled) :pointer
   (surface (:pointer (:struct xdg-surface)))
-  (tiled-edges :pointer))
+  (tiled-edges :uint32))
 
 (cffi:defcfun ("wlr_xdg_surface_send_close" xdg-surface-send-close) :void
   (surface (:pointer (:struct xdg-surface))))
@@ -108,8 +108,7 @@
   (positioner :pointer))
 
 (cffi:defcfun ("wlr_xdg_surface_surface_at" xdg-surface-surface-at) :pointer
-  (surface (:pointer
-(:struct xdg-surface)))
+  (surface (:pointer (:struct xdg-surface)))
   (sx :double)
   (sy :double)
   (sub-x :pointer)
@@ -118,7 +117,7 @@
 (cffi:defcfun ("wlr_surface_is_xdg_surface" surface-is-xdg-surface) :pointer
   (surface (:pointer (:struct xdg-surface))))
 
-(cffi:defcfun ("wlr_xdg_surface_from_surface" wlr-xdg-surface-from-surface) :pointer
+(cffi:defcfun ("wlr_xdg_surface_from_surface" xdg-surface-from-surface) :pointer
   (surface (:pointer (:struct xdg-surface))))
 
 (cffi:defcfun ("wlr_xdg_surface_get_geometry" xdg-surface-get-geometry) :void
