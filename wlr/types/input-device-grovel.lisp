@@ -58,7 +58,7 @@
 	 (:led-indexes "led_indexes" :type "xkb:led-index" :count "WLR_LED_COUNT")
 	 (:mod-indexes "mod_indexes" :type "xkb:mod-index" :count "WLR_MODIFIER_COUNT")
 	 (:keycodes "keycodes" :type :uint32 :count "WLR_KEYBOARD_KEYS_CAP")
-	 (:num_keycodes "num_keycodes" :type size-t)
+	 (:num-keycodes "num_keycodes" :type size-t)
 	 (:modifiers "modifiers" :type (:pointer (:struct keyboard-modifiers)))
 	 ;; may want to change the repeat-info into a seperate struct:
 	 (:repeat-info-rate "repeat_info.rate" :type :int32)

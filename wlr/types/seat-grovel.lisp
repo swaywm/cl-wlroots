@@ -38,15 +38,15 @@
 
 (cstruct seat-keyboard-state "struct wlr_seat_keyboard_state"
 	 (:seat "seat" :type (:pointer (:struct seat)))
-	 (:keyboard "keyboard" :type (:struct keyboard))
-	 (:focused_client "focused_client" :type (:struct seat-client))
-	 ;; (:focused_surface "focused_surface" :type (:struct surface))
-	 (:keyboard_destroy "keyboard_destroy" :type (:struct wl_listener))
-	 (:keyboard_keymap "keyboard_keymap" :type (:struct wl_listener))
-	 (:keyboard_repeat_info "keyboard_repeat_info" :type (:struct wl_listener))
-	 (:surface_destroy "surface_destroy" :type (:struct wl_listener))
-	 (:grab "grab" :type (:struct seat-keyboard-grab))
-	 (:default_grab "default_grab" :type (:struct seat-keyboard-grab)))
+	 (:keyboard "keyboard" :type (:pointer (:struct keyboard)))
+	 (:focused-client "focused_client" :type (:pointer (:struct seat-client)))
+	 (:focused-surface "focused_surface" :type :pointer)
+	 (:keyboard-destroy "keyboard_destroy" :type (:struct wl_listener))
+	 (:keyboard-keymap "keyboard_keymap" :type (:struct wl_listener))
+	 (:keyboard-repeat_info "keyboard_repeat_info" :type (:struct wl_listener))
+	 (:surface-destroy "surface_destroy" :type (:struct wl_listener))
+	 (:grab "grab" :type (:pointer (:struct seat-keyboard-grab)))
+	 (:default-grab "default_grab" :type (:pointer (:struct seat-keyboard-grab))))
 
 ;; commented out items are fields that are probably needed, but cannot be
 ;; used as their foriegn type hasn't been determined yet.
@@ -99,6 +99,12 @@
 
 	 (:data "data" :type :pointer))
 
+(cstruct seat-pointer-request-set-cursor-event
+	 (:seat-client "seat_client" :type (:pointer (:struct seat-client)))
+	 (:surface "surfacee" :type :pointer)
+	 (:serial "serial" :type :uint32)
+	 (:hotspot-x "hotspot_x" :type :int32)
+	 (:hotspot-y "hotspot_y" :type :int32))
 
 (cstruct pointer-grab-interface "struct wlr_pointer_grab_interface"
 	 (:enter "enter" :type :pointer)
