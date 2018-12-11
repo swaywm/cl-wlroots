@@ -17,20 +17,20 @@
 	 (:event-destroy "events.destroy" :type (:struct wl_signal))
 	 (:link "link" :type (:struct wl_list)))
 
-(cstruct  seat-pointer-state "struct wlr_seat_pointer_state"
-	  (:seat "seat" :type (:struct seat))
-	  (:focused-client "focused_client" :type (:struct seat))
-	  ;; wlr_surface
-	  (:focused_surface "focused_surface" :type :pointer)
-	  ;; wlr_seat_pointer_grab
-	  (:grab "grab" :type :pointer)
-	  ;; wlr_seat_pointer_grab
-	  (:default-grab "default_grab" :type :pointer)
+(cstruct seat-pointer-state "struct wlr_seat_pointer_state"
+	 (:seat "seat" :type (:struct seat))
+	 (:focused-client "focused_client" :type (:struct seat))
+	 ;; wlr_surface
+	 (:focused_surface "focused_surface" :type :pointer)
+	 ;; wlr_seat_pointer_grab
+	 (:grab "grab" :type :pointer)
+	 ;; wlr_seat_pointer_grab
+	 (:default-grab "default_grab" :type :pointer)
 
-	  (:grab-button "grab_button" :type :uint32)
-	  (:grab-serial "grab_serial" :type :uint32)
-	  (:grab-time "grab_time" :type :uint32)
-	  (:surface-destroy "surface_destroy" :type(:struct wl_listener)))
+	 (:grab-button "grab_button" :type :uint32)
+	 (:grab-serial "grab_serial" :type :uint32)
+	 (:grab-time "grab_time" :type :uint32)
+	 (:surface-destroy "surface_destroy" :type(:struct wl_listener)))
 
 (cstruct seat-keyboard-grab "struct wlr_seat_keyboard_grab")
 (cstruct seat-touch-grab "struct wlr_seat_touch_grab")
