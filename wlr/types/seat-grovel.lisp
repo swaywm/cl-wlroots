@@ -99,9 +99,9 @@
 
 	 (:data "data" :type :pointer))
 
-(cstruct seat-pointer-request-set-cursor-event
+(cstruct seat-pointer-request-set-cursor-event "struct wlr_seat_pointer_request_set_cursor_event"
 	 (:seat-client "seat_client" :type (:pointer (:struct seat-client)))
-	 (:surface "surfacee" :type :pointer)
+	 (:surface "surface" :type :pointer)
 	 (:serial "serial" :type :uint32)
 	 (:hotspot-x "hotspot_x" :type :int32)
 	 (:hotspot-y "hotspot_y" :type :int32))
