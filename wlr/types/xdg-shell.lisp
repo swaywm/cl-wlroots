@@ -18,7 +18,7 @@
 	  xdg-surface-for-each-surface
 	  xdg-surface-from-popup-resource
 	  xdg-surface-from-resource
-	  xdg-surface-from-surface
+	  xdg-surface-from-wlr-surface
 	  xdg-surface-from-toplevel-resource
 	  xdg-surface-get-geometry
 	  xdg-surface-ping
@@ -117,7 +117,7 @@
 (cffi:defcfun ("wlr_surface_is_xdg_surface" surface-is-xdg-surface) :pointer
   (surface (:pointer (:struct xdg-surface))))
 
-(cffi:defcfun ("wlr_xdg_surface_from_surface" xdg-surface-from-surface) :pointer
+(cffi:defcfun ("wlr_xdg_surface_from_wlr_surface" xdg-surface-from-wlr-surface) :pointer
   (surface (:pointer (:struct xdg-surface))))
 
 (cffi:defcfun ("wlr_xdg_surface_get_geometry" xdg-surface-get-geometry) :void
