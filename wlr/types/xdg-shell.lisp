@@ -59,8 +59,8 @@
 
 (cffi:defcfun ("wlr_xdg_toplevel_set_size" xdg-toplevel-set-size) :pointer
   (surface (:pointer (:struct xdg-surface)))
-  (width :pointer)
-  (height :pointer))
+  (width :uint32)
+  (height :uint32))
 
 (cffi:defcfun ("wlr_xdg_toplevel_set_activated" xdg-toplevel-set-activated) :pointer
   (surface (:pointer (:struct xdg-surface)))
