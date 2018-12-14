@@ -13,7 +13,6 @@
 	 (:keyboards "keyboards" :type (:struct wl_list))
 	 (:touches "touches" :type (:struct wl_list))
 	 (:data-devices "data_devices" :type (:struct wl_list))
-	 (:primary-selection_devices "primary_selection_devices" :type (:struct wl_list))
 	 (:event-destroy "events.destroy" :type (:struct wl_signal))
 	 (:link "link" :type (:struct wl_list)))
 
@@ -64,7 +63,6 @@
 	 (:selection_serial "selection_serial" :type :uint32)
 
 	 ;; (:primary-selection-source "primary_selection_source" :type (:pointer (:struct primary-selection-source)))
-	 (:primary-selection-serial "primary_selection_serial" :type :uint32)
 
 	 (:drag "drag" :type (:pointer (:struct drag)))
 	 (:drag-source "drag_source" :type (:pointer (:struct data-source)))
