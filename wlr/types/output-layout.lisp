@@ -95,7 +95,7 @@
 (defun output-layout-coords (layout reference)
   (with-foreign-objects ((lx :double) (ly :double))
     (wlr-output-layout-output-coords layout reference lx ly)
-    (values (mem-ref lx :double) (mem-ref ly :double))))
+    (values (the double-float (mem-ref lx :double)) (the double-float (mem-ref ly :double)))))
 
 (defcfun ("wlr_output_layout_get_box" output-layout-get-box) box
   "Get the box of the layout for the given reference output in layout
