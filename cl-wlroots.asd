@@ -65,7 +65,7 @@
 				("common-c-types" "package" "types/output"))
 	     (:FILE "types/output-layout" :DEPENDS-ON ("types/output-layout-grovel"))
 	     (:CFFI-GROVEL-FILE "types/seat-grovel" :DEPENDS-ON
-				("common-c-types" "package" "types/data-device"))
+				("common-c-types" "package" "types/data-device" "types/surface"))
 	     (:FILE "types/seat" :DEPENDS-ON ("types/seat-grovel"))
 	     (:CFFI-GROVEL-FILE "types/xcursor-manager-grovel" :DEPENDS-ON
 				("common-c-types" "package" "types/cursor" "xcursor"))

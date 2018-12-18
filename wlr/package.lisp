@@ -82,7 +82,7 @@
 
 (defpackage #:wlr/types/seat
   (:use :cffi :cl :wayland-server-core #:wlr/types/data-device
-	#:wlr/types/input-devices #:wlr/common-c-types #:wlr/base))
+	#:wlr/types/input-devices #:wlr/common-c-types #:wlr/base #:wlr/types/surface))
 
 (defpackage #:wlr/types/cursor
   (:use :cffi :cl :wayland-server-core #:wlr/types/input-devices
