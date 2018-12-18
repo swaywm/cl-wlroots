@@ -76,8 +76,8 @@
 
 (defpackage #:wlr/backend/wayland
   (:use :cl :cffi :wlr/base :wlr/backend
-	:wlr/types/input-devices
-	:wlr/types/output
+	#:wlr/types/input-devices
+	#:wlr/types/output
 	:wayland-server-core))
 
 (defpackage #:wlr/types/seat

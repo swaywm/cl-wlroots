@@ -44,23 +44,22 @@
   (seat (:pointer (:struct seat))))
 
 (defcfun ("wlr_seat_keyboard_notify_key" seat-notify-key) :void
-  " * Notify the seat that a key has been pressed on the keyboard. Defers to any
- * keyboard grabs."
+  "Notify the seat that a key has been pressed on the keyboard. Defers to any
+keyboard grabs."
   (seat (:pointer (:struct seat)))
   (time :uint32)
   (key :uint32)
   (state :uint32))
 
 (defcfun ("wlr_seat_keyboard_notify_modifiers" seat-keyboard-notify-modifiers) :void
-  " * Notify the seat that the modifiers for the keyboard have changed. Defers to
- * any keyboard grabs."
+  "Notify the seat that the modifiers for the keyboard have changed. Defers to
+any keyboard grabs."
   (seat (:pointer (:struct seat)))
   (modifiers (:pointer (:struct keyboard-modifiers))))
 
 (defcfun ("wlr_seat_keyboard_notify_enter" seat-keyboard-notify-enter) :void
-  " * Notify the seat that the keyboard focus has changed and request it to be the
- * focused surface for this keyboard. Defers to any current grab of the seat's
- * keyboard."
+  "Notify the seat that the keyboard focus has changed and request it to be the
+focused surface for this keyboard. Defers to any current grab of the seat's  keyboard."
   (seat (:pointer (:struct seat)))
   (surface :pointer)
   (keycodes (:pointer :uint32))
