@@ -18,7 +18,7 @@
 			  :protocol-name "xdg-shell")
 	     (:wl-scanner "wayland-sever-protocol" :protocol-type :server
 			  :protocol-name "wayland"
-			  :protocol-path #p"/usr/share/wayland/")))
+			  :protocol-source :wl-server)))
    (:module wlr
 	    :depends-on (wayland-headers wayland-protocols)
 	    ;; use the functions in gen-asd-file.lisp to generate the file list:
