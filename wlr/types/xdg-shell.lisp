@@ -12,6 +12,7 @@
 	  xdg-shell-create
 	  xdg-shell-destroy
 	  xdg-surface
+	  xdg-surface-at
 	  xdg-surface-configure
 	  xdg-surface-configure
 	  xdg-surface-for-each-popup
@@ -107,12 +108,19 @@
 (cffi:defcfun ("wlr_positioner_invert_y" positioner-invert-y) :void
   (positioner :pointer))
 
-(cffi:defcfun ("wlr_xdg_surface_surface_at" xdg-surface-surface-at) :pointer
+(cffi:defcfun wlr-xdg-surface-surface-at :pointer
   (surface (:pointer (:struct xdg-surface)))
   (sx :double)
   (sy :double)
   (sub-x :pointer)
   (sub-y :pointer))
+
+(defun xdg-surface-at (surface sx sy)
+  (cffi:with-foreign-objects ((sub-x :int)
+			      (sub-y :int))
+    (values (wlr-xdg-surface-surface-at surface sx sy sub-x sub-y)
+	    (the fixnum (mem-aref sub-x :int))
+	    (the fixnum (mem-aref sub-x :int)))))
 
 (cffi:defcfun ("wlr_surface_is_xdg_surface" surface-is-xdg-surface) :pointer
   (surface (:pointer (:struct xdg-surface))))
