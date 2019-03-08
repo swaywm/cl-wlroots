@@ -17,7 +17,8 @@
        ((:pointer "WLR_INPUT_DEVICE_POINTER"))
        ((:touch "WLR_INPUT_DEVICE_TOUCH"))
        ((:tablet-tool "WLR_INPUT_DEVICE_TABLET_TOOL"))
-       ((:tablet-pad "WLR_INPUT_DEVICE_TABLET_PAD")))
+       ((:tablet-pad "WLR_INPUT_DEVICE_TABLET_PAD"))
+       ((:switch "WLR_INPUT_DEVICE_SWITCH")))
 
 (cstruct input-device "struct wlr_input_device")
 
