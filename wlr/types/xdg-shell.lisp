@@ -122,7 +122,7 @@
 	    (the fixnum (mem-aref sub-x :int))
 	    (the fixnum (mem-aref sub-x :int)))))
 
-(cffi:defcfun ("wlr_surface_is_xdg_surface" surface-is-xdg-surface) :pointer
+(cffi:defcfun ("wlr_surface_is_xdg_surface" surface-is-xdg-surface) :bool
   (surface (:pointer (:struct xdg-surface))))
 
 (cffi:defcfun ("wlr_xdg_surface_from_wlr_surface" xdg-surface-from-wlr-surface) :pointer
