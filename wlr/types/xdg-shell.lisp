@@ -58,6 +58,9 @@
   (surface (:pointer
 (:struct xdg-surface))))
 
+(cffi:defcfun ("wlr_xdg_toplevel_send_close" xdg-toplevel-send-close) :void
+  (surface (:pointer (:struct xdg-surface))))
+
 (cffi:defcfun ("wlr_xdg_toplevel_set_size" xdg-toplevel-set-size) :pointer
   (surface (:pointer (:struct xdg-surface)))
   (width :uint32)
@@ -84,6 +87,9 @@
   (tiled-edges :uint32))
 
 (cffi:defcfun ("wlr_xdg_surface_send_close" xdg-surface-send-close) :void
+  (surface (:pointer (:struct xdg-surface))))
+
+(cffi:defcfun ("wlr_xdg_popup_destroy" xdg-popup-destroy) :void
   (surface (:pointer (:struct xdg-surface))))
 
 (cffi:defcfun ("wlr_xdg_popup_get_anchor_point" xdg-popup-get-anchor-point) :void
