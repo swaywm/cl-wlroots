@@ -55,8 +55,7 @@
   (positioner (:pointer (:struct xdg-positioner))))
 
 (cffi:defcfun ("wlr_xdg_surface_ping" xdg-surface-ping) :void
-  (surface (:pointer
-(:struct xdg-surface))))
+  (surface (:pointer (:struct xdg-surface))))
 
 (cffi:defcfun ("wlr_xdg_toplevel_send_close" xdg-toplevel-send-close) :void
   (surface (:pointer (:struct xdg-surface))))
