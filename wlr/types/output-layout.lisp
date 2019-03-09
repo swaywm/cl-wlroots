@@ -93,6 +93,8 @@
    (ly (:pointer :double)))
 
 (defun output-layout-coords (layout reference)
+  "Given x and y in layout coordinates, adjusts them to local output
+coordinates relative to the given reference output."
   (with-foreign-objects ((lx :double) (ly :double))
     (wlr-output-layout-output-coords layout reference lx ly)
     (values (the double-float (mem-ref lx :double)) (the double-float (mem-ref ly :double)))))
