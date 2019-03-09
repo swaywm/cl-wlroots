@@ -2,6 +2,7 @@
 
 (export '(xdg-client
 	  xdg-popup
+	  xdg-popup-destroy
 	  xdg-popup-get-anchor-point
 	  xdg-popup-get-toplevel-coords
 	  xdg-popup-grab
@@ -23,6 +24,7 @@
 	  xdg-surface-from-toplevel-resource
 	  xdg-surface-get-geometry
 	  xdg-surface-ping
+	  xdg-surface-send-close
 	  xdg-toplevel
 	  xdg-toplevel-set-activated
 	  xdg-toplevel-set-fullscreen
