@@ -16,16 +16,16 @@
   (cffi:define-foreign-type box ()
     ((x :initarg :x
 	:accessor box-x
-	:type integer)
+	:type fixnum)
      (y :initarg :y
 	:accessor box-y
-	:type integer)
+	:type fixnum)
      (width :initarg :width
 	    :accessor box-width
-	    :type integer)
+	    :type fixnum)
      (height :initarg :height
 	     :accessor box-height
-	     :type integer))
+	     :type fixnum))
     (:actual-type :pointer)
     (:simple-parser box))
 
