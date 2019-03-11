@@ -9,7 +9,7 @@
 	 (:clients "clients" :type (:struct wl_list))
 	 (:popup-grabs "popup_grabs" :type (:struct wl_list))
 	 (:ping-timeout "ping_timeout" :type :uint32)
-	 (:display-destroy "display_destroy" :type wl_listener)
+	 (:display-destroy "display_destroy" :type(:struct  wl_listener))
 	 (:event-new-surface "events.new_surface" :type (:struct wl_signal))
 	 (:event-destroy "events.destroy" :type (:struct wl_signal)))
 
@@ -37,15 +37,15 @@
 (cstruct xdg-toplevel "struct wlr_xdg_toplevel"
 	 (:title "title" :type :string)
 	 (:app-id "app_id" :type :string)
-	 (:event-request-maximize "events.request_maximize" :type wl_signal)
-	 (:event-request-fullscreen "events.request_fullscreen" :type wl_signal)
-	 (:event-request-minimize "events.request_minimize" :type wl_signal)
-	 (:event-request-move "events.request_move" :type wl_signal)
-	 (:event-request-resize "events.request_resize" :type wl_signal)
-	 (:event-request-show-window-menu "events.request_show_window_menu" :type wl_signal)
-	 (:event-set-parent "events.set_parent" :type wl_signal)
-	 (:event-set-title "events.set_title" :type wl_signal)
-	 (:event-set-app-id "events.set_app_id" :type wl_signal))
+	 (:event-request-maximize "events.request_maximize" :type (:struct wl_signal))
+	 (:event-request-fullscreen "events.request_fullscreen" :type (:struct wl_signal))
+	 (:event-request-minimize "events.request_minimize" :type (:struct wl_signal))
+	 (:event-request-move "events.request_move" :type (:struct wl_signal))
+	 (:event-request-resize "events.request_resize" :type (:struct wl_signal))
+	 (:event-request-show-window-menu "events.request_show_window_menu" :type (:struct wl_signal))
+	 (:event-set-parent "events.set_parent" :type (:struct wl_signal))
+	 (:event-set-title "events.set_title" :type (:struct wl_signal))
+	 (:event-set-app-id "events.set_app_id" :type (:struct wl_signal)))
 
 (cstruct xdg-surface-configure "struct wlr_xdg_surface_configure")
 
