@@ -135,9 +135,13 @@
 (cffi:defcfun ("wlr_xdg_surface_from_wlr_surface" xdg-surface-from-wlr-surface) :pointer
   (surface (:pointer (:struct xdg-surface))))
 
-(cffi:defcfun ("wlr_xdg_surface_get_geometry" xdg-surface-get-geometry) :void
+(cffi:defcfun "wlr_xdg_surface_get_geometry" :void
   (surface (:pointer (:struct xdg-surface)))
   (box :pointer))
+
+(defun xdg-surface-get-geometry (surface)
+  (with-return-pointer (box 'box)
+    (wlr-xdg-surface-get-geometry surface box)))
 
 (cffi:defcfun ("wlr_xdg_surface_for_each_surface" xdg-surface-for-each-surface) :void
   (surface (:pointer (:struct xdg-surface)))
