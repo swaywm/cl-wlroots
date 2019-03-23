@@ -26,7 +26,7 @@
 (cstruct data-source-impl "struct wlr_data_source_impl"
 	 (:send "send" :type :pointer)
 	 (:accept "accept" :type :pointer)
-	 (:cancel "cancel" :type :pointer)
+	 (:cancel "destroy" :type :pointer)
 	 (:dnd-drop "dnd_drop" :type :pointer)
 	 (:dnd-finish "dnd_finish" :type :pointer)
 	 (:dnd-action "dnd_action" :type :pointer))

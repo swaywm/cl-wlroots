@@ -24,7 +24,7 @@
 	  xdg-surface-from-toplevel-resource
 	  xdg-surface-get-geometry
 	  xdg-surface-ping
-	  xdg-surface-send-close
+	  xdg-toplevel-send-close
 	  xdg-toplevel
 	  xdg-toplevel-set-activated
 	  xdg-toplevel-set-fullscreen
@@ -86,9 +86,6 @@
 (cffi:defcfun ("wlr_xdg_toplevel_set_tiled" xdg-toplevel-set-tiled) :pointer
   (surface (:pointer (:struct xdg-surface)))
   (tiled-edges :uint32))
-
-(cffi:defcfun ("wlr_xdg_surface_send_close" xdg-surface-send-close) :void
-  (surface (:pointer (:struct xdg-surface))))
 
 (cffi:defcfun ("wlr_xdg_popup_destroy" xdg-popup-destroy) :void
   (surface (:pointer (:struct xdg-surface))))
