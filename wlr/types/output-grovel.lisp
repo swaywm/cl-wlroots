@@ -4,10 +4,11 @@
 (include "wlr/types/wlr_output.h")
 
 (cstruct output-mode "struct wlr_output_mode"
-	 (:flags "flags" :type :uint32)
+	 (:flags "flags" :type :uint32) ;; enum wl_output_mode
 	 (:width "width" :type :int32)
 	 (:height "height" :type :int32)
-	 (:refresh "refresh" :type :int32)
+	 (:refresh "refresh" :type :int32) ;; mHz
+	 (:preferred "preferred" :type :bool)
 	 (:link "link" :type (:struct wl_list)))
 
 (cstruct output "struct wlr_output")
